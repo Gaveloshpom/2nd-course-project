@@ -1,0 +1,21 @@
+﻿<Window x:Class="OnlineCourseApp.AddPracticalTaskWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Додати практичне завдання" Height="450" Width="600"
+        WindowStartupLocation="CenterOwner" Background="#FAFAFA">
+
+    <StackPanel Margin="20">
+        <TextBlock Text="Заголовок пункту:" FontWeight="Bold"/>
+        <TextBox x:Name="TitleBox" Height="30" Margin="0 0 0 15"/>
+
+        <TextBlock Text="Формулювання завдання:" FontWeight="Bold"/>
+        <TextBox x:Name="TaskTextBox" AcceptsReturn="True" TextWrapping="Wrap" Height="180" Margin="0 0 0 20"/>
+
+        <TextBlock Text="Правильна відповідь:" FontWeight="Bold"/>
+        <TextBox x:Name="AnswerBox" Height="30" ToolTip="Це поле буде збережене, але приховане для користувача" />
+
+        <Button Content="Зберегти" Width="100" Height="35" 
+                HorizontalAlignment="Right"
+                Background="#27AE60" Foreground="White" Margin="0 20 0 0" Click="Save_Click"/>
+    </StackPanel>
+</Window>

@@ -1,0 +1,32 @@
+﻿<Window x:Class="OnlineCourseApp.MyCoursesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Мої курси" Height="500" Width="900"
+        WindowStartupLocation="CenterOwner" Background="#FAFAFA">
+
+    <Grid Margin="10">
+        <DataGrid x:Name="CoursesGrid" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="Auto"/>
+                <DataGridTextColumn Header="Назва" Binding="{Binding Title}" Width="*"/>
+                <DataGridTextColumn Header="Лайки" Binding="{Binding Likes}" Width="80"/>
+                <DataGridTextColumn Header="Дизлайки" Binding="{Binding Dislikes}" Width="80"/>
+                <DataGridTextColumn Header="Статус" Binding="{Binding Status}" Width="100"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Кнопки -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 10">
+            <Button Content="Опублікувати" Margin="5" Click="Publish_Click"/>
+            <Button Content="Редагувати зміст" Margin="5" Click="EditContent_Click"/>
+            <Button Content="Редагувати інфо" Margin="5" Click="EditInfo_Click"/>
+            <Button Content="Додати автора" Margin="5" Click="AddAuthor_Click"/>
+            <Button Content="Видалити курс" Margin="5" Click="DeleteCourse_Click"/>
+        </StackPanel>
+        <Label Content=" 1   C# для початківців                                                                                                                                                                 14                    3           Опубліковано" Margin="0,25,0,413"/>
+        <Label Content=" 2   Python для початківців                                                                                                                                                          14                    3           Заморожено" Margin="0,51,0,387"/>
+        <Label Content=" 3   C++ для початківців                                                                                                                                                              14                    3           На розгляді" Margin="0,77,0,361"/>
+    </Grid>
+</Window>
+        
+

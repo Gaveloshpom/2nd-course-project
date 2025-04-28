@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Course_Project
+namespace Maket_View_test_1
 {
     /// <summary>
     /// Interaction logic for App.xaml
