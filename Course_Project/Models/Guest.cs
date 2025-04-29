@@ -14,7 +14,7 @@ namespace Course_Project.Models
             // Guest does not edit profile
         }
 
-        public bool Register(string email, string password, string name, string surname, DateTime dateOfBirth)
+        public bool Register(string email, string password, string name, string surname, string role)
         {
             // TODO: Реалізувати реєстрацію
             return true;

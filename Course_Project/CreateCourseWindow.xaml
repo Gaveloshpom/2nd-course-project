@@ -1,4 +1,4 @@
-﻿<Window x:Class="OnlineCourseApp.CreateCourseWindow"
+﻿<Window x:Class="Course_Project.CreateCourseWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Створення курсу" Height="350" Width="400"

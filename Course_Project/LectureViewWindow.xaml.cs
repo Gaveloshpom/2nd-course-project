@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Course_Maket
+namespace Course_Project
 {
     /// <summary>
     /// Interaction logic for LectureViewWindow.xaml
