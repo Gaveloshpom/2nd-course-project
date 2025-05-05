@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Course_Project.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Maket_View_test_1
+namespace OnlineCourseApp
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -22,7 +23,9 @@ namespace Maket_View_test_1
     {
         public MainWindow()
         {
-            //InitializeComponent();
+            InitializeComponent();
+            DataContext = new MainWindowViewModel();
         }
+
     }
 }

@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Maket_View_test_1
+namespace OnlineCourseApp
 {
     /// <summary>
     /// Interaction logic for LoginWindow.xaml

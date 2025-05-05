@@ -1,4 +1,4 @@
-﻿<Window x:Class="Maket_View_test_1.LoginWindow"
+﻿<Window x:Class="OnlineCourseApp.LoginWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Вхід / Реєстрація" Height="400" Width="400"

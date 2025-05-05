@@ -11,17 +11,18 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Course_Project.Models;
+using Course_Project.ViewModels;
 
-namespace OnlineCourseApp
+namespace Course_Project.Views
 {
-    /// <summary>
-    /// Interaction logic for AddLectureWindow.xaml
-    /// </summary>
-    public partial class AddLectureWindow : Window
+    public partial class CourseListView : Window
     {
-        public AddLectureWindow()
+        public CourseListView(RegisteredUser user)
         {
             InitializeComponent();
+            DataContext = new CourseListViewModel(user);
         }
     }
 }
+
