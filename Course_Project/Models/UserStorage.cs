@@ -30,6 +30,6 @@ namespace Course_Project.Models
         }
 
         public static RegisteredUser FindUser(string username) =>
-            Users.FirstOrDefault(u => u.Username == username);
+            Users.FirstOrDefault(u => u.Name == username);
     }
 }

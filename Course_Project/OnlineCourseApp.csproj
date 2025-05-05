@@ -69,7 +69,7 @@
     <Compile Include="Models\Lecture.cs" />
     <Compile Include="Models\Practice.cs" />
     <Compile Include="Models\RegisteredUser.cs" />
-    <Compile Include="Models\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="Models\Review.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserService.cs" />

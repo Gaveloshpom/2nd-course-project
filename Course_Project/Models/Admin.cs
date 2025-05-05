@@ -1,4 +1,6 @@
-﻿namespace Course_Project.Models
+﻿using System;
+
+namespace Course_Project.Models
 {
     public class Admin : User
     {
@@ -26,6 +28,16 @@
         public bool DeleteCourse(Course course, string reason)
         {
             return !string.IsNullOrWhiteSpace(reason); // Заглушка
+        }
+
+        public override bool Authorize(string email, string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void EditProfile(string newName, string newSurname)
+        {
+            throw new NotImplementedException();
         }
     }
 }

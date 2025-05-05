@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Course_Project.Models
 {
@@ -28,6 +29,16 @@ namespace Course_Project.Models
         public IEnumerable<Practice> ViewPractices(Course course)
         {
             return course?.PracticeList ?? new List<Practice>();
+        }
+
+        public override bool Authorize(string email, string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void EditProfile(string newName, string newSurname)
+        {
+            throw new NotImplementedException();
         }
     }
 }

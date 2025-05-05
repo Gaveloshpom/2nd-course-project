@@ -38,7 +38,7 @@ namespace OnlineCourseApp
                 var user = loginWindow.LoggedInUser;
                 // Оновлюємо UI
                 LoginButton.Visibility = Visibility.Collapsed;
-                UsernameLabel.Content = $"Вітаємо, {user.Username}!";
+                UsernameLabel.Content = $"Вітаємо, {user.Name} {user.Surname}!";
                 UsernameLabel.Visibility = Visibility.Visible;
             }
         }

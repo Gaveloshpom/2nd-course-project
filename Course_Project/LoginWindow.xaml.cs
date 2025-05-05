@@ -31,7 +31,7 @@ namespace OnlineCourseApp
             InitializeComponent();
             _viewModel = new LoginViewModel();
             DataContext = _viewModel;
-            users = UserService.LoadUsers();
+            users = UserStorage.Users;
         }
 
         //private void Login_Click(object sender, RoutedEventArgs e)
@@ -59,10 +59,10 @@ namespace OnlineCourseApp
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            string username = UsernameTextBox.Text;
+            string email = UserEmailTextBox.Text;
             string password = PasswordBox.Password;
 
-            var user = users.FirstOrDefault(u => u.Username == username && u.Password == password);
+            var user = users.FirstOrDefault(u => u.Email == email && u.Password == password);
             if (user != null)
             {
                 LoggedInUser = user;

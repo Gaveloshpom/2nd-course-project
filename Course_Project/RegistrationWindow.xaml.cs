@@ -1,4 +1,5 @@
 ﻿using Course_Project.Models;
+using Course_Project.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -31,8 +33,13 @@ namespace OnlineCourseApp
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {
+            var email = EmailTextBox.Text;
+            var name = NameTextBox.Text;
+            var surname = SurnameTextBox.Text;
             var password = PasswordBox.Password;
-            if (_viewModel.Register(password))
+            var role = RoleComboBox.Text;
+
+            if (_viewModel.Register(email, name, surname, password, role))
             {
                 MessageBox.Show("Реєстрація успішна!");
                 Close();

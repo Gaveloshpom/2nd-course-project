@@ -1,25 +1,30 @@
-﻿using System;
+﻿using Course_Project.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Course_Project.Models
+
+namespace Course_Project.ViewModels
 {
     public class RegisterViewModel : INotifyPropertyChanged
     {
-        public string Username { get; set; }
+        //public string UserEmail { get; set; }
 
-        public bool Register(string password)
+        public bool Register(string email, string name, string surname, string password, string role)
         {
-            if (UserStorage.FindUser(Username) != null)
+            if (UserStorage.FindUser(email) != null)
                 return false;
 
             var user = new RegisteredUser
             {
-                Username = Username,
-                Password = password
+                Email = email,
+                Name = name,
+                Surname = surname,
+                Password = password,
+                Role = role
             };
 
             UserStorage.Users.Add(user);
