@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 using Course_Project.Models;
 using Course_Project.ViewModels;
 
@@ -62,17 +64,25 @@ namespace OnlineCourseApp
             string email = UserEmailTextBox.Text;
             string password = PasswordBox.Password;
 
-            var user = users.FirstOrDefault(u => u.Email == email && u.Password == password);
-            if (user != null)
+            if (_viewModel.Login(email, password))
             {
-                LoggedInUser = user;
-                DialogResult = true; // це закриє вікно та поверне true
+                MessageBox.Show("Авторизація успішна!");
+                //LoggedInUser = user;
+                DialogResult = true;
                 Close();
             }
-            else
-            {
-                MessageBox.Show("Невірний логін або пароль");
-            }
+
+            //var user = users.FirstOrDefault(u => u.Email == email && u.Password == password);
+            //if (user != null)
+            //{
+            //    LoggedInUser = user;
+            //    DialogResult = true; // це закриє вікно та поверне true
+            //    Close();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Невірний логін або пароль");
+            //}
         }
     }
 

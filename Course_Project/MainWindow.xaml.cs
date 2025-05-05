@@ -1,4 +1,5 @@
 ﻿using Course_Project.ViewModels;
+using Maket_View_test_1;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,7 +36,7 @@ namespace OnlineCourseApp
             if (loginWindow.ShowDialog() == true)
             {
                 // Отримуємо залогіненого користувача
-                var user = loginWindow.LoggedInUser;
+                var user = App.CurrentUser;
                 // Оновлюємо UI
                 LoginButton.Visibility = Visibility.Collapsed;
                 UsernameLabel.Content = $"Вітаємо, {user.Name} {user.Surname}!";

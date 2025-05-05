@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 
 namespace Course_Project.ViewModels
@@ -13,10 +14,30 @@ namespace Course_Project.ViewModels
     {
         //public string UserEmail { get; set; }
 
+
         public bool Register(string email, string name, string surname, string password, string role)
         {
-            if (UserStorage.FindUser(email) != null)
+            var emailError = ValidationHelper.ValidateEmail(email);
+            var passwordError = ValidationHelper.ValidatePassword(password);
+            var nameError = ValidationHelper.ValidateName(name);
+            var surnameError = ValidationHelper.ValidateSurname(surname);
+
+            if (emailError != null  || nameError != null || surnameError != null || passwordError != null)
+            {
+                MessageBox.Show(
+                    $"{emailError ?? ""}\n{nameError ?? ""}\n{surnameError ?? ""}\n{passwordError ?? ""}",
+                    "Помилка реєстрації",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error
+                );
                 return false;
+            }
+
+            if (UserStorage.FindUser(email) != null)
+            {
+                MessageBox.Show("Користувач з таким Email вже існує");
+                return false;
+            }
 
             var user = new RegisteredUser
             {

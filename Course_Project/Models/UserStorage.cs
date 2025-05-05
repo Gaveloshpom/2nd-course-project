@@ -29,7 +29,7 @@ namespace Course_Project.Models
             File.WriteAllText(FilePath, json);
         }
 
-        public static RegisteredUser FindUser(string username) =>
-            Users.FirstOrDefault(u => u.Name == username);
+        public static RegisteredUser FindUser(string email) =>
+            Users.FirstOrDefault(u => u.Email == email);
     }
 }

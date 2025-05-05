@@ -6,16 +6,32 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Xml.Linq;
 
 namespace Course_Project.ViewModels
 {
     public class LoginViewModel : INotifyPropertyChanged
     {
-        public string Username { get; set; }
+        //public string Username { get; set; }
 
-        public bool Login(string password)
+        public bool Login(string email, string password)
         {
-            var user = UserStorage.FindUser(Username);
+            var emailError = ValidationHelper.ValidateEmail(email);
+            var passwordError = ValidationHelper.ValidatePassword(password);
+
+            if (emailError != null || passwordError != null)
+            {
+                MessageBox.Show(
+                    $"{emailError ?? ""}\n{passwordError ?? ""}",
+                    "Помилка реєстрації",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error
+                );
+                return false;
+            }
+
+            var user = UserStorage.FindUser(email);
             if (user != null && user.Password == password)
             {
                 App.CurrentUser = user;

@@ -46,7 +46,7 @@ namespace OnlineCourseApp
             }
             else
             {
-                MessageBox.Show("Користувач вже існує.");
+
             }
         }
     }
