@@ -23,5 +23,10 @@ namespace OnlineCourseApp
         {
             InitializeComponent();
         }
+
+        private void EditProfile_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -69,19 +69,19 @@
     <Compile Include="Models\Lecture.cs" />
     <Compile Include="Models\Practice.cs" />
     <Compile Include="Models\RegisteredUser.cs" />
+    <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Models\Review.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserStorage.cs" />
     <Compile Include="ReasonDialog.xaml.cs">
       <DependentUpon>ReasonDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="RegistrationWindow.xaml.cs">
       <DependentUpon>RegistrationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
-    <Compile Include="Views\CourseListView.xaml.cs">
-      <DependentUpon>CourseListView.xaml</DependentUpon>
-    </Compile>
     <Page Include="AddAuthorWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -202,10 +202,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\CourseListView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ManageCoursesWindow.xaml.cs">
@@ -247,6 +243,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -24,10 +24,10 @@
         </StackPanel>
 
         <!-- Кнопка -->
-        <Button Grid.Row="2" Content="Редагувати профіль" Height="35" Width="180"
+        <Button Grid.Row="1" Content="Редагувати профіль" Height="35" Width="180"
                 HorizontalAlignment="Left"
                 Background="#3498DB" Foreground="White" FontWeight="Bold"
-                Click="EditProfile_Click"/>
+                Click="EditProfile_Click" Margin="0,257,0,0" Grid.RowSpan="2" VerticalAlignment="Top"/>
     </Grid>
 </Window>
 

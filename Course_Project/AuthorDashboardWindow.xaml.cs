@@ -23,5 +23,15 @@ namespace OnlineCourseApp
         {
             InitializeComponent();
         }
+
+        private void OpenMyCourses_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void CreateCourse_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

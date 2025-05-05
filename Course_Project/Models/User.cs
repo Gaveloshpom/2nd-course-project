@@ -7,7 +7,7 @@ namespace Course_Project.Models
     public abstract class User
     {
         public string Username { get; set; }
-        public string PasswordHash { get; set; }
+        public string Password { get; set; }
 
         // Можна додати авторизаційні методи, пізніше
     }

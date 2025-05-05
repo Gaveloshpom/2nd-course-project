@@ -20,7 +20,7 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 10">
             <Button Content="👍" Width="40" Margin="5" Click="Like_Click"/>
             <Button Content="👎" Width="40" Margin="5" Click="Dislike_Click"/>
-            <Button Content="Перевірити" Width="100" Margin="20 5 0 5" Click="Next_Click"
+            <Button Content="Перевірити" Width="100" Margin="20 5 0 5" Click="Check_Click"
                     Background="#3498DB" Foreground="White"/>
             <Button Content="Далі →" Width="100" Margin="20 5 0 5" Click="Next_Click"
                     Background="#3498DB" Foreground="White"/>

@@ -23,5 +23,10 @@ namespace Course_Project
         {
             InitializeComponent();
         }
+
+        private void Create_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
