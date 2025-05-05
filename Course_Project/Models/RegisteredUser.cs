@@ -2,25 +2,33 @@
 
 namespace Course_Project.Models
 {
-    public class RegisteredUser : User
+    public class RegisteredUser : User, ICourseViewable
     {
-        public override bool Authorize(string email, string password)
+        public List<Course> EnrolledCourses { get; set; } = new List<Course>();
+
+        public bool EnrollToCourse(Course course)
         {
-            return true; // TODO: Реалізувати логіку авторизації
+            if (course == null || EnrolledCourses.Contains(course))
+                return false;
+
+            EnrolledCourses.Add(course);
+            return true;
         }
 
-        public override void EditProfile(string newName, string newSurname)
+        public IEnumerable<Course> ViewAllCourses()
         {
-            Name = newName;
-            Surname = newSurname;
+            return CourseStorage.Courses;
         }
 
-        public List<Course> ViewCourses() => new List<Course>(); // Заглушка
+        public IEnumerable<Lecture> ViewLectures(Course course)
+        {
+            return course?.LectureList ?? new List<Lecture>();
+        }
 
-        public bool RegisterToCourse(Course course) => true; // Заглушка
-
-        public bool RateCourse(Course course, int rating) => rating >= 1 && rating <= 5; // Заглушка
-
-        public bool LeaveReview(Course course, string reviewText) => reviewText.Length >= 5 && reviewText.Length <= 200; // Заглушка
+        public IEnumerable<Practice> ViewPractices(Course course)
+        {
+            return course?.PracticeList ?? new List<Practice>();
+        }
     }
 }
+

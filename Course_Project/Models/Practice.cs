@@ -9,14 +9,10 @@ namespace Course_Project.Models
         public string Title { get; set; }
 
         [JsonProperty]
-        public string TaskText { get; set; }
+        public string Content { get; set; }
 
         [JsonProperty]
         public string CorrectAnswer { get; set; }
-
-        public string GetTitle() => Title;
-
-        public string GetContent() => TaskText;
     }
 }
 

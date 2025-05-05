@@ -2,16 +2,16 @@
 {
     public class Admin : User
     {
-        public override bool Authorize(string email, string password)
-        {
-            return true; // Заглушка
-        }
+        //public override bool Authorize(string email, string password)
+        //{
+        //    return true; // Заглушка
+        //}
 
-        public override void EditProfile(string newName, string newSurname)
-        {
-            Name = newName;
-            Surname = newSurname;
-        }
+        //public override void EditProfile(string newName, string newSurname)
+        //{
+        //    Name = newName;
+        //    Surname = newSurname;
+        //}
 
         public bool ApproveCourse(Course course)
         {
