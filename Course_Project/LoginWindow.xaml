@@ -9,7 +9,7 @@
     <Border Margin="20" Background="White" CornerRadius="10" Padding="20" BorderBrush="#DDD" BorderThickness="1" >
         <StackPanel Margin="20">
             <TextBlock Text="Логін"/>
-            <TextBox Text="{Binding Username}" Margin="0,0,0,10"/>
+            <TextBox x:Name="UsernameTextBox" Text="{Binding Username}" Margin="0,0,0,10"/>
 
             <TextBlock Text="Пароль"/>
             <PasswordBox x:Name="PasswordBox" Margin="0,0,0,10"/>

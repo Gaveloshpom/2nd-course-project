@@ -22,8 +22,8 @@ namespace Maket_View_test_1
             base.OnStartup(e);
             UserStorage.Load();
 
-            var loginWindow = new LoginWindow();
-            loginWindow.Show();
+            var mainWindow = new MainWindow();
+            mainWindow.Show();
         }
 
         protected override void OnExit(ExitEventArgs e)

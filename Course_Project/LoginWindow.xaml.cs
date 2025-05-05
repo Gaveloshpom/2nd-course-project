@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Course_Project.Models;
 using Course_Project.ViewModels;
 
 
@@ -23,32 +24,55 @@ namespace OnlineCourseApp
     {
         private readonly LoginViewModel _viewModel;
 
+        private List<RegisteredUser> users;
+
         public LoginWindow()
         {
             InitializeComponent();
             _viewModel = new LoginViewModel();
             DataContext = _viewModel;
+            users = UserService.LoadUsers();
         }
 
-        private void Login_Click(object sender, RoutedEventArgs e)
-        {
-            var password = PasswordBox.Password;
-            if (_viewModel.Login(password))
-            {
-                var mainWindow = new MainWindow();
-                mainWindow.Show();
-                Close();
-            }
-            else
-            {
-                MessageBox.Show("Невірний логін або пароль.");
-            }
-        }
+        //private void Login_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var password = PasswordBox.Password;
+        //    if (_viewModel.Login(password))
+        //    {
+        //        var mainWindow = new MainWindow();
+        //        mainWindow.Show();
+        //        Close();
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Невірний логін або пароль.");
+        //    }
+        //}
+
+        public RegisteredUser LoggedInUser { get; private set; }
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {
             var registerWindow = new RegistrationWindow();
             registerWindow.ShowDialog();
+        }
+
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            string username = UsernameTextBox.Text;
+            string password = PasswordBox.Password;
+
+            var user = users.FirstOrDefault(u => u.Username == username && u.Password == password);
+            if (user != null)
+            {
+                LoggedInUser = user;
+                DialogResult = true; // це закриє вікно та поверне true
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Невірний логін або пароль");
+            }
         }
     }
 

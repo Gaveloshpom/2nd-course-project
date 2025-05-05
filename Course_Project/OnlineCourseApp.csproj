@@ -72,6 +72,7 @@
     <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Models\Review.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserService.cs" />
     <Compile Include="Models\UserStorage.cs" />
     <Compile Include="ReasonDialog.xaml.cs">
       <DependentUpon>ReasonDialog.xaml</DependentUpon>

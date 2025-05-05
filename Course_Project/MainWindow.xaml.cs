@@ -27,5 +27,20 @@ namespace OnlineCourseApp
             DataContext = new MainWindowViewModel();
         }
 
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            var loginWindow = new LoginWindow();
+            loginWindow.Owner = this;
+
+            if (loginWindow.ShowDialog() == true)
+            {
+                // Отримуємо залогіненого користувача
+                var user = loginWindow.LoggedInUser;
+                // Оновлюємо UI
+                LoginButton.Visibility = Visibility.Collapsed;
+                UsernameLabel.Content = $"Вітаємо, {user.Username}!";
+                UsernameLabel.Visibility = Visibility.Visible;
+            }
+        }
     }
 }
