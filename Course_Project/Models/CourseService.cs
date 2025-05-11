@@ -91,6 +91,16 @@ namespace Course_Project.Models
                 c.AuthorEmailList != null &&
                 c.AuthorEmailList.Contains(authorEmail)).ToList();
         }
+
+        public static void RateCourse(Course course, int score)
+        {
+            if (score < 1 || score > 5) return;
+
+            if (course.Ratings == null)
+                course.Ratings = new List<int>();
+            course.Ratings.Add(score);
+            UpdateCourse(course);
+        }
     }
 }
 

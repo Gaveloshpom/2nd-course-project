@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using Newtonsoft.Json;
 
 //namespace Course_Project.Models
@@ -22,7 +24,9 @@ namespace Course_Project.Models
     {
         private string title;
         private string description;
-        private string status;
+        private string status = "В розробці";
+        [JsonProperty]
+        public List<int> Ratings { get; set; } = new List<int>();
 
         [JsonProperty]
         public string Title
@@ -53,6 +57,11 @@ namespace Course_Project.Models
 
         [JsonProperty]
         public List<Practice> PracticeList { get; set; } = new List<Practice>();
+
+        [JsonIgnore]
+        public double Rating => Ratings != null && Ratings.Any()
+        ? Math.Round(Ratings.Average(), 1)
+        : 0.0;
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string propertyName) =>

@@ -65,14 +65,23 @@ namespace Course_Project.ViewModels
         {
             if (SelectedCourse == null) return;
 
-            SelectedCourse.Status = "Опубліковано";
+            if (SelectedCourse.Status == "Опубліковано")
+            {
+                MessageBox.Show($"Курс '{SelectedCourse.Title}' вже опубліковано.");
+                return;
+            }
+
+            SelectedCourse.Status = "На розгляді";
             CourseService.UpdateCourse(SelectedCourse);
-            MessageBox.Show($"Курс '{SelectedCourse.Title}' успішно опубліковано!");
+            MessageBox.Show($"Курс '{SelectedCourse.Title}' передано на розгляд адміністрації.");
         }
 
         private void EditContent()
         {
-            MessageBox.Show($"Редагування змісту курсу '{SelectedCourse.Title}' ще не реалізоване.");
+            if (SelectedCourse == null) return;
+
+            var win = new EditCourseContentWindow(SelectedCourse);
+            win.ShowDialog();
         }
 
         private void EditInfo()

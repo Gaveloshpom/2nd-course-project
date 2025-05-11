@@ -12,5 +12,7 @@ namespace Course_Project.Models
         //string GetContent();
         string Title { get; set; }
         string Content { get; set; }
+        int Likes { get; set; }
+        int Dislikes {  get; set; }
     }
 }
