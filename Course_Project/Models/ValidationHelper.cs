@@ -59,5 +59,82 @@ namespace Course_Project.Models
 
             return null;
         }
+
+        public static string ValidateCourseTitle(string title)
+        {
+            if (string.IsNullOrWhiteSpace(title))
+                return "Назва обов'язкова!";
+
+            if (title.Length < 1 || title.Length > 30)
+                return "Назва має містити від 1 до 30 символів!";
+
+            return null;
+        }
+
+        public static string ValidateCourseDescription(string description)
+        {
+            if (string.IsNullOrWhiteSpace(description))
+                return "Опис обов'язковий!";
+
+            if (description.Length < 5 || description.Length > 200)
+                return "Опис має містити від 5 до 200 символів!";
+
+            return null;
+        }
+
+        public static string ValidateLectureTitle(string title)
+        {
+            if (string.IsNullOrWhiteSpace(title))
+                return "Заголовок лекції обов'язковий!";
+
+            if (title.Length < 5 || title.Length > 30)
+                return "Заголовок лекції має містити від 5 до 30 символів!";
+
+            return null;
+        }
+
+        public static string ValidateLectureText(string text)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+                return "Текст лекції обов'язковий!";
+
+            if (text.Length < 50 || text.Length > 400)
+                return "Текст лекції має містити від 50 до 400 символів!";
+
+            return null;
+        }
+
+        public static string ValidatePracticeTitle(string title)
+        {
+            if (string.IsNullOrWhiteSpace(title))
+                return "Заголовок практичного заняття обов'язковий!";
+
+            if (title.Length < 5 || title.Length > 30)
+                return "Заголовок практичного заняття має містити від 5 до 30 символів!";
+
+            return null;
+        }
+
+        public static string ValidatePracticeText(string text)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+                return "Формулювання завдання практичного заняття обов'язкове!";
+
+            if (text.Length < 5 || text.Length > 200)
+                return "Формулювання до завдання практичного заняття має містити від 5 до 200 символів!";
+
+            return null;
+        }
+
+        public static string ValidatePracticeAnswer(string answer)
+        {
+            if (string.IsNullOrWhiteSpace(answer))
+                return "Відповідь до завдання практичного заняття обов'язкова!";
+
+            if (answer.Length < 1 || answer.Length > 50)
+                return "Відповідь до завдання практичного заняття має містити від 1 до 50 символів!";
+
+            return null;
+        }
     }
 }

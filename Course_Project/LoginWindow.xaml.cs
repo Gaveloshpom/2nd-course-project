@@ -51,7 +51,7 @@ namespace OnlineCourseApp
         //    }
         //}
 
-        public RegisteredUser LoggedInUser { get; private set; }
+        //public RegisteredUser LoggedInUser { get; private set; }
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {
@@ -70,6 +70,15 @@ namespace OnlineCourseApp
                 //LoggedInUser = user;
                 DialogResult = true;
                 Close();
+            }
+            else 
+            {
+                MessageBox.Show(
+                   "Неправильний логін або пароль!",
+                   "Помилка авторизації",
+                   MessageBoxButton.OK,
+                   MessageBoxImage.Error
+               );
             }
 
             //var user = users.FirstOrDefault(u => u.Email == email && u.Password == password);

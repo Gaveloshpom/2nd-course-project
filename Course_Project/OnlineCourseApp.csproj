@@ -61,6 +61,7 @@
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\CourseService.cs" />
     <Compile Include="Models\CourseStorage.cs" />
     <Compile Include="Models\Guest.cs" />
     <Compile Include="Models\IContentItem.cs" />
@@ -70,6 +71,8 @@
     <Compile Include="Models\Practice.cs" />
     <Compile Include="Models\RegisteredUser.cs" />
     <Compile Include="Models\ValidationHelper.cs" />
+    <Compile Include="ViewModels\MyCoursesViewModel.cs" />
+    <Compile Include="ViewModels\CreateCourseViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="Models\Review.cs" />
     <Compile Include="Models\User.cs" />

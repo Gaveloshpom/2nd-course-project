@@ -36,5 +36,4 @@ namespace Course_Project.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
     }
-
 }

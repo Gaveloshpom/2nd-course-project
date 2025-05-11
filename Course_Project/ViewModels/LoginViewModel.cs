@@ -24,7 +24,7 @@ namespace Course_Project.ViewModels
             {
                 MessageBox.Show(
                     $"{emailError ?? ""}\n{passwordError ?? ""}",
-                    "Помилка реєстрації",
+                    "Помилка авторизації",
                     MessageBoxButton.OK,
                     MessageBoxImage.Error
                 );

@@ -26,6 +26,26 @@ namespace OnlineCourseApp
         {
             InitializeComponent();
             DataContext = new MainWindowViewModel();
+
+            var user = App.CurrentUser;
+            if (user != null && user.Role == "Автор курсу")
+            {
+                AuthorPanelButton.Visibility = Visibility.Visible;
+            }
+
+            //if (App.CurrentUser != null)
+            //{
+            //    if (App.CurrentUser.Role == "Автор курсу")
+            //    {
+            //        AuthorButton.IsEnabled = true;
+            //        AuthorButton.Visibility = Visibility.Visible;
+            //    }
+            //    else
+            //    {
+            //        AuthorButton.IsEnabled = false;
+            //        AuthorButton.Visibility = Visibility.Collapsed;
+            //    }
+            //}
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -41,7 +61,28 @@ namespace OnlineCourseApp
                 LoginButton.Visibility = Visibility.Collapsed;
                 UsernameLabel.Content = $"Вітаємо, {user.Name} {user.Surname}!";
                 UsernameLabel.Visibility = Visibility.Visible;
+
+                if (App.CurrentUser != null)
+                {
+                    if (App.CurrentUser.Role == "Автор курсу")
+                    {
+                        AuthorPanelButton.IsEnabled = true;
+                        AuthorPanelButton.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        AuthorPanelButton.IsEnabled = false;
+                        AuthorPanelButton.Visibility = Visibility.Collapsed;
+                    }
+                }
             }
+        }
+
+        private void AuthorPanelButton_Click(object sender, RoutedEventArgs e)
+        {
+            var panel = new MyCoursesWindow(App.CurrentUser);
+            panel.Owner = this;
+            panel.ShowDialog();
         }
     }
 }

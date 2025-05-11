@@ -2,10 +2,8 @@
 
 namespace Course_Project.Models
 {
-    public class Author : ICourseManageable
+    public class Author : RegisteredUser, ICourseManageable
     {
-        public string Name { get; set; }
-
         public bool CreateCourse(string title, string description)
         {
             if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(description))
@@ -17,7 +15,7 @@ namespace Course_Project.Models
                 Description = description
             };
 
-            newCourse.AuthorList.Add(this);
+            newCourse.AuthorEmailList.Add(this.Email);
             CourseStorage.Courses.Add(newCourse);
 
             return true;

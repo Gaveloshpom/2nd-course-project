@@ -54,6 +54,8 @@
             <TextBlock Text="Курси" Foreground="White" Margin="0 10" FontSize="16"/>
             <TextBlock Text="Мій Профіль" Foreground="White" Margin="0 10" FontSize="16"/>
             <TextBlock Text="Налаштування" Foreground="White" Margin="0 10" FontSize="16"/>
+            <Button x:Name="AuthorPanelButton" Content="Панель автора" HorizontalAlignment="Left" VerticalAlignment="Top" Background="{x:Null}" FontSize="16" BorderBrush="{x:Null}" Foreground="White" Click="AuthorPanelButton_Click" Visibility="Collapsed"/>
+
         </StackPanel>
 
         <!-- Контент -->
