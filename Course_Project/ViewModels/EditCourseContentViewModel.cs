@@ -20,6 +20,9 @@ namespace Course_Project.ViewModels
         public ICommand AddLectureCommand { get; }
         public ICommand AddPracticeCommand { get; }
         public ICommand DeletePointCommand { get; }
+        public ICommand RenamePointCommand { get; }
+        public ICommand MoveUpCommand { get; }
+        public ICommand MoveDownCommand { get; }
 
         public EditCourseContentViewModel(Course course)
         {
@@ -31,6 +34,10 @@ namespace Course_Project.ViewModels
             AddLectureCommand = new RelayCommand(_ => AddLecture());
             AddPracticeCommand = new RelayCommand(_ => AddPractice());
             DeletePointCommand = new RelayCommand(_ => DeleteSelected(), _ => SelectedItem != null);
+            RenamePointCommand = new RelayCommand(_ => RenamePoint(), _ => SelectedItem != null);
+            MoveUpCommand = new RelayCommand(_ => MoveUp(), _ => CanMoveUp());
+            MoveDownCommand = new RelayCommand(_ => MoveDown(), _ => CanMoveDown());
+
         }
 
         private void BuildContentList()
@@ -103,6 +110,71 @@ namespace Course_Project.ViewModels
             {
                 _course.PracticeList.Remove(practice);
             }
+
+            CourseService.UpdateCourse(_course);
+            BuildContentList();
+        }
+
+        private void RenamePoint()
+        {
+            if (SelectedItem == null) return;
+
+            string input = Microsoft.VisualBasic.Interaction.InputBox("Нова назва:", "Редагування", SelectedItem.Point);
+            if (!string.IsNullOrWhiteSpace(input))
+            {
+                SelectedItem.Point = input;
+
+                if (SelectedItem.Type == "Лекція" && SelectedItem.OriginalItem is Lecture lec)
+                    lec.Title = input;
+                else if (SelectedItem.Type == "Практика" && SelectedItem.OriginalItem is Practice prac)
+                    prac.Title = input;
+
+                CourseService.UpdateCourse(_course);
+                BuildContentList();
+            }
+        }
+
+        private void MoveUp()
+        {
+            int index = ContentItems.IndexOf(SelectedItem);
+            if (index > 0)
+            {
+                var item = SelectedItem;
+                ContentItems.RemoveAt(index);
+                ContentItems.Insert(index - 1, item);
+                RebuildCourseLists();
+                OnPropertyChanged(nameof(ContentItems));
+            }
+        }
+        private bool CanMoveUp() =>
+            SelectedItem != null && ContentItems.IndexOf(SelectedItem) > 0;
+
+        private void MoveDown()
+        {
+            int index = ContentItems.IndexOf(SelectedItem);
+            if (index < ContentItems.Count - 1)
+            {
+                var item = SelectedItem;
+                ContentItems.RemoveAt(index);
+                ContentItems.Insert(index + 1, item);
+                RebuildCourseLists();
+                OnPropertyChanged(nameof(ContentItems));
+            }
+        }
+        private bool CanMoveDown() =>
+            SelectedItem != null && ContentItems.IndexOf(SelectedItem) < ContentItems.Count - 1;
+
+        private void RebuildCourseLists()
+        {
+            _course.LectureList = ContentItems
+                .Where(c => c.Type == "Лекція")
+                .Select(c => c.OriginalItem as Lecture)
+                .ToList();
+
+            _course.PracticeList = ContentItems
+                .Where(c => c.Type == "Практика")
+                .Select(c => c.OriginalItem as Practice)
+                .ToList();
 
             CourseService.UpdateCourse(_course);
             BuildContentList();

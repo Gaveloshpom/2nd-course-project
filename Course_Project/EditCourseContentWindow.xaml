@@ -22,8 +22,12 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 10">
             <Button Content="Додати лекцію" Margin="5" Command="{Binding AddLectureCommand}"/>
             <Button Content="Додати практичне завдання" Margin="5" Command="{Binding AddPracticeCommand}"/>
+            <Button Content="Редагувати назву" Margin="5" Command="{Binding RenamePointCommand}"/>
+            <Button Content="↑ Вгору" Margin="5" Command="{Binding MoveUpCommand}"/>
+            <Button Content="↓ Вниз" Margin="5" Command="{Binding MoveDownCommand}"/>
             <Button Content="Видалити пункт" Margin="5" Command="{Binding DeletePointCommand}"/>
         </StackPanel>
+
     </Grid>
 </Window>
 
