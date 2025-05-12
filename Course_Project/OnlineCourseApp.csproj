@@ -65,6 +65,15 @@
     <Compile Include="AdminPanelWindow.xaml.cs">
       <DependentUpon>AdminPanelWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CourseContentPlayerWindow.xaml.cs">
+      <DependentUpon>CourseContentPlayerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CourseReviewsWindow.xaml.cs">
+      <DependentUpon>CourseReviewsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CourseViewerWindow.xaml.cs">
+      <DependentUpon>CourseViewerWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditCourseInfoWindow.xaml.cs">
       <DependentUpon>EditCourseInfoWindow.xaml</DependentUpon>
     </Compile>
@@ -73,6 +82,7 @@
     <Compile Include="Models\ContentBlock.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\CourseContentItem.cs" />
+    <Compile Include="Models\CourseReview.cs" />
     <Compile Include="Models\CourseService.cs" />
     <Compile Include="Models\CourseStorage.cs" />
     <Compile Include="Models\Guest.cs" />
@@ -129,9 +139,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="CourseContentPlayerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CourseInfoWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CourseReviewsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CourseViewerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CreateCourseWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

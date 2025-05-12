@@ -77,13 +77,12 @@ namespace Course_Project.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public string Status { get; set; } = "В розробці";
-        public List<string> AuthorEmailList { get; set; }
-
+        public List<string> AuthorEmailList { get; set; } = new List<string>();
+        public List<ContentBlock> ContentBlocks { get; set; } = new List<ContentBlock>();
+        public List<int> Ratings { get; set; } = new List<int>();
         public List<string> AdminLogs { get; set; } = new List<string>();
 
-        public List<ContentBlock> ContentBlocks { get; set; } = new List<ContentBlock>();
-
-        public List<int> Ratings { get; set; } = new List<int>();
+        public List<CourseReview> Reviews { get; set; } = new List<CourseReview>();
 
         [JsonIgnore]
         public double Rating => Ratings != null && Ratings.Any()

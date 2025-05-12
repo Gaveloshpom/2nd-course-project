@@ -7,6 +7,7 @@ using System.Windows.Input;
 using System.Windows;
 using Maket_View_test_1;
 using System;
+using System.Linq;
 
 public class AdminPanelViewModel : INotifyPropertyChanged
 {
@@ -28,6 +29,7 @@ public class AdminPanelViewModel : INotifyPropertyChanged
     public ICommand FreezeCourseCommand { get; }
     public ICommand DeleteCourseCommand { get; }
     public ICommand ViewLogsCommand { get; }
+    public ICommand ViewCourseCommand { get; }
 
     public AdminPanelViewModel()
     {
@@ -37,6 +39,7 @@ public class AdminPanelViewModel : INotifyPropertyChanged
         FreezeCourseCommand = new RelayCommand(_ => FreezeCourse(), _ => SelectedCourse != null && (SelectedCourse.Status == "Опубліковано" || SelectedCourse.Status == "На розгляді"));
         DeleteCourseCommand = new RelayCommand(_ => DeleteCourse(), _ => SelectedCourse != null);
         ViewLogsCommand = new RelayCommand(_ => ViewLogs(), _ => SelectedCourse != null);
+        ViewCourseCommand = new RelayCommand(_ => ViewCourse(), _ => SelectedCourse != null);
     }
 
     private void ViewLogs()
@@ -89,6 +92,24 @@ public class AdminPanelViewModel : INotifyPropertyChanged
 
         MessageBox.Show($"Курс видалено. Причина: {reason}");
         RefreshCourses();
+    }
+
+    private void ViewCourse()
+    {
+        if (SelectedCourse == null || SelectedCourse.ContentBlocks == null || !SelectedCourse.ContentBlocks.Any())
+        {
+            MessageBox.Show("Курс порожній або не вибрано.");
+            return;
+        }
+
+        foreach (var block in SelectedCourse.ContentBlocks.OrderBy(b => b.Id))
+        {
+            var window = new CourseContentPlayerWindow(block, isAdmin: true);
+            window.Owner = Application.Current.MainWindow;
+            window.ShowDialog();
+        }
+
+        MessageBox.Show("Перегляд завершено.");
     }
 
     private string GetReason()

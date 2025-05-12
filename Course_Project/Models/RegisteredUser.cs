@@ -6,6 +6,7 @@ namespace Course_Project.Models
 {
     public class RegisteredUser : User, ICourseViewable
     {
+        public List<Guid> CompletedCourses { get; set; } = new List<Guid>();
         public List<Course> EnrolledCourses { get; set; } = new List<Course>();
 
         public bool EnrollToCourse(Course course)
