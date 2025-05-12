@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Course_Project.Models
 {
@@ -23,12 +24,16 @@ namespace Course_Project.Models
 
         public IEnumerable<Lecture> ViewLectures(Course course)
         {
-            return course?.LectureList ?? new List<Lecture>();
+            return course?.ContentBlocks
+                .Where(c => c.Type == "Лекція")
+                .Select(c => c.LectureData) ?? new List<Lecture>();
         }
 
         public IEnumerable<Practice> ViewPractices(Course course)
         {
-            return course?.PracticeList ?? new List<Practice>();
+            return course?.ContentBlocks
+                .Where(c => c.Type == "Практика")
+                .Select(c => c.PracticeData) ?? new List<Practice>();
         }
 
         public override bool Authorize(string email, string password)

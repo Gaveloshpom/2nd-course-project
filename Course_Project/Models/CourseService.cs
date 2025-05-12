@@ -44,41 +44,28 @@ namespace Course_Project.Models
         /// <summary>
         /// Оновлює існуючий курс (за Title + Email автора)
         /// </summary>
-        public static void UpdateCourse(Course updated)
+        public static void UpdateCourse(Course course)
         {
             var courses = LoadCourses();
+            var existing = courses.FirstOrDefault(c => c.Id == course.Id);
 
-            var course = courses.FirstOrDefault(c =>
-                c.Title == updated.Title &&
-                c.AuthorEmailList != null &&
-                c.AuthorEmailList.Contains(updated.AuthorEmailList.FirstOrDefault())); // перший автор як "головний"
-
-            if (course != null)
+            if (existing != null)
             {
-                course.Description = updated.Description;
-                course.Status = updated.Status;
-                course.LectureList = updated.LectureList;
-                course.PracticeList = updated.PracticeList;
-                course.AuthorEmailList = updated.AuthorEmailList;
-
-                SaveCourses(courses);
+                courses.Remove(existing);
             }
+
+            courses.Add(course);
+            SaveCourses(courses);
         }
 
         /// <summary>
         /// Видаляє курс за Title + будь-який email автора
         /// </summary>
-        public static void DeleteCourse(Course courseToDelete)
+        public static void DeleteCourse(Course course)
         {
             var courses = LoadCourses();
-
-            var updated = courses.Where(c =>
-                !(c.Title == courseToDelete.Title &&
-                  c.AuthorEmailList != null &&
-                  c.AuthorEmailList.Intersect(courseToDelete.AuthorEmailList).Any())
-            ).ToList();
-
-            SaveCourses(updated);
+            courses.RemoveAll(c => c.Id == course.Id);
+            SaveCourses(courses);
         }
 
         /// <summary>

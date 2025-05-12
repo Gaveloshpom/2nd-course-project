@@ -86,12 +86,21 @@ namespace Course_Project.ViewModels
 
         private void EditInfo()
         {
-            MessageBox.Show($"Редагування інформації про курс '{SelectedCourse.Title}' ще не реалізоване.");
+            if (SelectedCourse == null) return;
+
+            var win = new EditCourseInfoWindow(SelectedCourse);
+            if (win.ShowDialog() == true)
+            {
+                MessageBox.Show("Інформацію оновлено!");
+            }
         }
 
         private void AddAuthor()
         {
-            MessageBox.Show($"Додавання автора до курсу '{SelectedCourse.Title}' ще не реалізоване.");
+            if (SelectedCourse == null) return;
+
+            var win = new AddAuthorWindow(SelectedCourse);
+            win.ShowDialog();
         }
 
         private void CreateCourse()

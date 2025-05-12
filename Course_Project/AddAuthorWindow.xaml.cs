@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Course_Project.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,22 +12,46 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+//using static OnlineCourseApp.ManageCoursesWindow;
 
 namespace OnlineCourseApp
 {
-    /// <summary>
-    /// Interaction logic for AddAuthorWindow.xaml
-    /// </summary>
     public partial class AddAuthorWindow : Window
     {
-        public AddAuthorWindow()
+        private readonly Course _course;
+
+        public AddAuthorWindow(Course course)
         {
             InitializeComponent();
+            _course = course;
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            string email = EmailBox.Text.Trim();
+            if (string.IsNullOrEmpty(email))
+            {
+                MessageBox.Show("Введіть email.");
+                return;
+            }
+
+            if (_course.AuthorEmailList == null)
+            {
+                _course.AuthorEmailList = new List<string>();
+            }
+
+            if (!_course.AuthorEmailList.Contains(email))
+            {
+                _course.AuthorEmailList.Add(email);
+                CourseService.UpdateCourse(_course);
+                MessageBox.Show("Автор доданий.");
+                DialogResult = true;
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Автор вже доданий.");
+            }
         }
     }
 }

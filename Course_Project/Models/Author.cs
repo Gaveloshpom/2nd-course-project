@@ -37,7 +37,7 @@ namespace Course_Project.Models
             if (course == null || lecture == null)
                 return false;
 
-            course.LectureList.Add(lecture);
+            course.ContentBlocks.Add(new ContentBlock { Type = "Лекція", LectureData = lecture });
             return true;
         }
 
@@ -46,7 +46,7 @@ namespace Course_Project.Models
             if (course == null || practice == null)
                 return false;
 
-            course.PracticeList.Add(practice);
+            course.ContentBlocks.Add(new ContentBlock { Type = "Практика", PracticeData = practice });
             return true;
         }
     }
