@@ -1,4 +1,5 @@
 ﻿using Course_Project.Models;
+using OnlineCourseApp;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -31,6 +32,7 @@ namespace Course_Project.ViewModels
         public ICommand RenamePointCommand { get; }
         public ICommand MoveUpCommand { get; }
         public ICommand MoveDownCommand { get; }
+        public ICommand EditSelectedCommand { get; }
 
         public EditCourseContentViewModel(Course course)
         {
@@ -43,6 +45,7 @@ namespace Course_Project.ViewModels
             RenamePointCommand = new RelayCommand(_ => RenamePoint(), _ => SelectedItem != null);
             MoveUpCommand = new RelayCommand(_ => MoveUp(), _ => CanMoveUp());
             MoveDownCommand = new RelayCommand(_ => MoveDown(), _ => CanMoveDown());
+            EditSelectedCommand = new RelayCommand(_ => EditSelected(), _ => SelectedItem != null);
         }
 
         private void AddLecture()
@@ -80,7 +83,7 @@ namespace Course_Project.ViewModels
                 else if (SelectedItem.Type == "Практика")
                     SelectedItem.PracticeData.Title = input;
 
-                SelectedItem.Refresh(); // ⬅️ оновлюємо відображення
+                SelectedItem.Refresh(); // оновлення відображення
                 SaveAndRefresh();
             }
         }
@@ -125,6 +128,31 @@ namespace Course_Project.ViewModels
                 item.Refresh(); // оновлення UI
             }
         }
+
+        private void EditSelected()
+        {
+            if (SelectedItem == null) return;
+
+            bool? result = null;
+
+            if (SelectedItem.Type == "Лекція")
+            {
+                var win = new AddLectureWindow(SelectedItem.LectureData);
+                result = win.ShowDialog();
+            }
+            else if (SelectedItem.Type == "Практика")
+            {
+                var win = new AddPracticalTaskWindow(SelectedItem.PracticeData);
+                result = win.ShowDialog();
+            }
+
+            if (result == true)
+            {
+                SelectedItem.Refresh(); // Оновити UI
+                SaveAndRefresh(); 
+            }
+        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged(string name) =>

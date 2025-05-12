@@ -1,32 +1,54 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Course_Project.Models;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace OnlineCourseApp
 {
-    /// <summary>
-    /// Interaction logic for AddPracticalTaskWindow.xaml
-    /// </summary>
     public partial class AddPracticalTaskWindow : Window
     {
-        public AddPracticalTaskWindow()
+        private readonly Practice _practice;
+
+        public AddPracticalTaskWindow(Practice practice)
         {
             InitializeComponent();
+            _practice = practice;
+
+            TitleBox.Text = _practice.Title;
+            TaskTextBox.Text = _practice.Question;
+            AnswerBox.Text = _practice.Answer;
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            string titleError = ValidationHelper.ValidatePracticeTitle(TitleBox.Text);
+            string textError = ValidationHelper.ValidatePracticeText(TaskTextBox.Text);
+            string answerError = ValidationHelper.ValidatePracticeAnswer(AnswerBox.Text);
+
+            if (titleError != null)
+            {
+                MessageBox.Show(titleError);
+                return;
+            }
+
+            if (textError != null)
+            {
+                MessageBox.Show(textError);
+                return;
+            }
+
+            if (answerError != null)
+            {
+                MessageBox.Show(answerError);
+                return;
+            }
+
+            _practice.Title = TitleBox.Text.Trim();
+            _practice.Question = TaskTextBox.Text.Trim();
+            _practice.Answer = AnswerBox.Text.Trim();
+
+            DialogResult = true;
+            Close();
         }
     }
 }
+
+
