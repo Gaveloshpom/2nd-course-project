@@ -1,7 +1,7 @@
 ﻿<Window x:Class="OnlineCourseApp.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Online Course Platform" Height="600" Width="1000"
+        Title="Online Course Platform" Height="600" Width="1100"
         WindowStartupLocation="CenterScreen"
         Background="#F5F5F5">
 
@@ -90,7 +90,7 @@
                     </Border>
                 </ItemsControl>
                 <TextBlock FontSize="22" FontWeight="Bold"><Run Language="uk-ua" Text="Інші"/><Run Text=" Курси"/></TextBlock>
-                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <!--<ScrollViewer VerticalScrollBarVisibility="Auto">
                     <ItemsControl ItemsSource="{Binding Courses}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -115,7 +115,11 @@
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
+                </ScrollViewer> -->
+                <ScrollViewer>
+                    <WrapPanel x:Name="CoursesWrapPanel" Margin="10" />
                 </ScrollViewer>
+
             </StackPanel>
         </ScrollViewer>
     </Grid>

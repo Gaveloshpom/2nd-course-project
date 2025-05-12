@@ -7,14 +7,14 @@ namespace Course_Project.Models
     public class RegisteredUser : User, ICourseViewable
     {
         public List<Guid> CompletedCourses { get; set; } = new List<Guid>();
-        public List<Course> EnrolledCourses { get; set; } = new List<Course>();
+        public List<Guid> EnrolledCourses { get; set; } = new List<Guid>();
 
         public bool EnrollToCourse(Course course)
         {
-            if (course == null || EnrolledCourses.Contains(course))
+            if (course == null || EnrolledCourses.Contains(course.Id))
                 return false;
 
-            EnrolledCourses.Add(course);
+            EnrolledCourses.Add(course.Id);
             return true;
         }
 

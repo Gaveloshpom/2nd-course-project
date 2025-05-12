@@ -1,4 +1,5 @@
-﻿using Course_Project.ViewModels;
+﻿using Course_Project.Models;
+using Course_Project.ViewModels;
 using Maket_View_test_1;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,8 @@ namespace OnlineCourseApp
             {
                 AuthorPanelButton.Visibility = Visibility.Visible;
             }
+
+            LoadCourses();
 
             //if (App.CurrentUser != null)
             //{
@@ -99,6 +102,48 @@ namespace OnlineCourseApp
             var adminWindow = new AdminPanelWindow();
             adminWindow.Owner = this;
             adminWindow.ShowDialog();
+        }
+
+        private void LoadCourses()
+        {
+            var publishedCourses = CourseService.LoadCourses().Where(c => c.Status == "Опубліковано").ToList();
+
+            foreach (var course in publishedCourses)
+            {
+                var card = CreateCourseCard(course);
+                CoursesWrapPanel.Children.Add(card);
+            }
+        }
+
+        private Border CreateCourseCard(Course course)
+        {
+            var border = new Border
+            {
+                Background = Brushes.White,
+                Width = 220,
+                Height = 150,
+                Margin = new Thickness(10),
+                Padding = new Thickness(10),
+                CornerRadius = new CornerRadius(8),
+                BorderBrush = Brushes.LightGray,
+                BorderThickness = new Thickness(1),
+                Cursor = System.Windows.Input.Cursors.Hand
+            };
+
+            var stack = new StackPanel();
+            stack.Children.Add(new TextBlock { Text = course.Title, FontWeight = FontWeights.Bold, FontSize = 14 });
+            stack.Children.Add(new TextBlock { Text = $"Автор: {string.Join(", ", course.AuthorEmailList)}", FontSize = 12, Foreground = Brushes.Gray });
+            stack.Children.Add(new TextBlock { Text = $"{course.Rating:F1} ★", Foreground = Brushes.Orange, FontSize = 12 });
+
+            border.Child = stack;
+            border.MouseLeftButtonUp += (s, e) =>
+            {
+                var infoWin = new CourseInfoWindow(course);
+                infoWin.Owner = this;
+                infoWin.ShowDialog();
+            };
+
+            return border;
         }
     }
 }
