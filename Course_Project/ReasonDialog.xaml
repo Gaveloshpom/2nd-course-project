@@ -1,7 +1,7 @@
 ﻿<Window x:Class="OnlineCourseApp.ReasonDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Вкажіть причину" Height="200" Width="400"
+        Title="Вкажіть причину" Height="210" Width="400"
         WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
 
     <StackPanel Margin="20">

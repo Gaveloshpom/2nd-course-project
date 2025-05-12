@@ -79,6 +79,8 @@ namespace Course_Project.Models
         public string Status { get; set; } = "В розробці";
         public List<string> AuthorEmailList { get; set; }
 
+        public List<string> AdminLogs { get; set; } = new List<string>();
+
         public List<ContentBlock> ContentBlocks { get; set; } = new List<ContentBlock>();
 
         public List<int> Ratings { get; set; } = new List<int>();

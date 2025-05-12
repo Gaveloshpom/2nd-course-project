@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Course_Project.ViewModels;
 
 namespace OnlineCourseApp
 {
@@ -22,7 +23,7 @@ namespace OnlineCourseApp
         public AdminPanelWindow()
         {
             InitializeComponent();
-            DataContext = new Course_Project.ViewModels.AdminPanelViewModel();
+            DataContext = new AdminPanelViewModel();
         }
     }
 }
