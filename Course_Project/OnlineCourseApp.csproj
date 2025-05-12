@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -58,22 +59,61 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdminLogsWindow.xaml.cs">
+      <DependentUpon>AdminLogsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanelWindow.xaml.cs">
+      <DependentUpon>AdminPanelWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CourseContentPlayerWindow.xaml.cs">
+      <DependentUpon>CourseContentPlayerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CourseReviewsWindow.xaml.cs">
+      <DependentUpon>CourseReviewsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CoursesListWindow.xaml.cs">
+      <DependentUpon>CoursesListWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CourseViewerWindow.xaml.cs">
+      <DependentUpon>CourseViewerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditCourseInfoWindow.xaml.cs">
+      <DependentUpon>EditCourseInfoWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Author.cs" />
+    <Compile Include="Models\ContentBlock.cs" />
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\CourseContentItem.cs" />
+    <Compile Include="Models\CourseReview.cs" />
+    <Compile Include="Models\CourseService.cs" />
+    <Compile Include="Models\CourseStorage.cs" />
     <Compile Include="Models\Guest.cs" />
     <Compile Include="Models\IContentItem.cs" />
+    <Compile Include="Models\ICourseManageable.cs" />
+    <Compile Include="Models\ICourseViewable.cs" />
     <Compile Include="Models\Lecture.cs" />
     <Compile Include="Models\Practice.cs" />
     <Compile Include="Models\RegisteredUser.cs" />
+    <Compile Include="Models\ValidationHelper.cs" />
+    <Compile Include="ViewModels\AdminPanelViewModel.cs" />
+    <Compile Include="ViewModels\EditCourseContentViewModel.cs" />
+    <Compile Include="ViewModels\MyCoursesViewModel.cs" />
+    <Compile Include="ViewModels\CreateCourseViewModel.cs" />
+    <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="Models\Review.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserService.cs" />
+    <Compile Include="Models\UserStorage.cs" />
     <Compile Include="ReasonDialog.xaml.cs">
       <DependentUpon>ReasonDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="RegistrationWindow.xaml.cs">
       <DependentUpon>RegistrationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\RelayCommand.cs" />
     <Page Include="AddAuthorWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -86,6 +126,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="AdminLogsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminPanelWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AuthorDashboardWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -94,9 +142,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="CourseContentPlayerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CourseInfoWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CourseReviewsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CoursesListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CourseViewerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CreateCourseWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -106,9 +170,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="EditCourseInfo.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="EditCourseInfoWindow.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EditProfileWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -153,9 +217,6 @@
     </Compile>
     <Compile Include="EditCourseContentWindow.xaml.cs">
       <DependentUpon>EditCourseContentWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="EditCourseInfo.xaml.cs">
-      <DependentUpon>EditCourseInfo.xaml</DependentUpon>
     </Compile>
     <Compile Include="EditProfileWindow.xaml.cs">
       <DependentUpon>EditProfileWindow.xaml</DependentUpon>
@@ -235,6 +296,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Converters\" />
+    <Folder Include="Views\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

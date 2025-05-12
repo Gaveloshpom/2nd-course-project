@@ -1,36 +1,55 @@
-﻿namespace Course_Project.Models
+﻿using System.Linq;
+
+namespace Course_Project.Models
 {
-    public class Author : RegisteredUser
+    public class Author : RegisteredUser, ICourseManageable
     {
         public bool CreateCourse(string title, string description)
         {
-            return true; // Заглушка
-        }
+            if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(description))
+                return false;
 
-        public bool EditCourse(Course course, string newTitle, string newDescription)
-        {
-            return true; // Заглушка
-        }
+            var newCourse = new Course
+            {
+                Title = title,
+                Description = description
+            };
 
-        public bool AddLecture(Course course, Lecture lecture)
-        {
-            return true; // Заглушка
-        }
+            newCourse.AuthorEmailList.Add(this.Email);
+            CourseStorage.Courses.Add(newCourse);
 
-        public bool AddPractice(Course course, Practice practice)
-        {
-            return true; // Заглушка
+            return true;
         }
 
         public bool DeleteCourse(Course course)
         {
-            return true; // Заглушка
+            if (course == null)
+                return false;
+
+            if (!CourseStorage.Courses.Contains(course))
+                return false;
+
+            return CourseStorage.Courses.Remove(course);
         }
 
-        public bool AddCoAuthor(Course course, Author coAuthor)
+        public bool AddLecture(Course course, Lecture lecture)
         {
-            return true; // Заглушка
+            if (course == null || lecture == null)
+                return false;
+
+            course.ContentBlocks.Add(new ContentBlock { Type = "Лекція", LectureData = lecture });
+            return true;
+        }
+
+        public bool AddPractice(Course course, Practice practice)
+        {
+            if (course == null || practice == null)
+                return false;
+
+            course.ContentBlocks.Add(new ContentBlock { Type = "Практика", PracticeData = practice });
+            return true;
         }
     }
 }
+
 

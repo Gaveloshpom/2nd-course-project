@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Course_Maket
+namespace OnlineCourseApp
 {
     /// <summary>
     /// Interaction logic for PracticalTaskViewWindow.xaml
@@ -22,6 +22,26 @@ namespace Course_Maket
         public PracticalTaskViewWindow()
         {
             InitializeComponent();
+        }
+
+        private void Like_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Dislike_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Next_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Check_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

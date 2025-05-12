@@ -8,7 +8,11 @@ namespace Course_Project.Models
     // Інтерфейс для лекцій і практичних завдань
     public interface IContentItem
     {
-        string GetTitle();
-        string GetContent();
+        //string GetTitle();
+        //string GetContent();
+        string Title { get; set; }
+        string Content { get; set; }
+        int Likes { get; set; }
+        int Dislikes {  get; set; }
     }
 }

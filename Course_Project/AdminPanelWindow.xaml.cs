@@ -11,17 +11,19 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Course_Project.ViewModels;
 
-namespace Course_Project
+namespace OnlineCourseApp
 {
     /// <summary>
-    /// Interaction logic for EditCourseInfo.xaml
+    /// Interaction logic for AdminPanelWindow.xaml
     /// </summary>
-    public partial class EditCourseInfo : Window
+    public partial class AdminPanelWindow : Window
     {
-        public EditCourseInfo()
+        public AdminPanelWindow()
         {
             InitializeComponent();
+            DataContext = new AdminPanelViewModel();
         }
     }
 }

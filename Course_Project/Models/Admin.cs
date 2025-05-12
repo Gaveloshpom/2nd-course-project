@@ -1,17 +1,19 @@
-﻿namespace Course_Project.Models
+﻿using System;
+
+namespace Course_Project.Models
 {
     public class Admin : User
     {
-        public override bool Authorize(string email, string password)
-        {
-            return true; // Заглушка
-        }
+        //public override bool Authorize(string email, string password)
+        //{
+        //    return true; // Заглушка
+        //}
 
-        public override void EditProfile(string newName, string newSurname)
-        {
-            Name = newName;
-            Surname = newSurname;
-        }
+        //public override void EditProfile(string newName, string newSurname)
+        //{
+        //    Name = newName;
+        //    Surname = newSurname;
+        //}
 
         public bool ApproveCourse(Course course)
         {
@@ -26,6 +28,16 @@
         public bool DeleteCourse(Course course, string reason)
         {
             return !string.IsNullOrWhiteSpace(reason); // Заглушка
+        }
+
+        public override bool Authorize(string email, string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void EditProfile(string newName, string newSurname)
+        {
+            throw new NotImplementedException();
         }
     }
 }

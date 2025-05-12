@@ -1,40 +1,37 @@
 ﻿<Window x:Class="OnlineCourseApp.CourseInfoWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Інформація про курс" Height="500" Width="600"
+        Title="Інформація про курс" Height="550" Width="600"
         WindowStartupLocation="CenterOwner" Background="#FAFAFA">
 
     <ScrollViewer>
         <StackPanel Margin="20">
-            <!-- Назва курсу -->
-            <TextBlock Text="C#  Для початківців" FontSize="22" FontWeight="Bold" Margin="0 0 0 10"/>
-
-            <!-- Автор -->
-            <TextBlock Text="Сергій" FontSize="14" FontStyle="Italic" Foreground="Gray" Margin="0 0 0 20"/>
-
-            <!-- Опис -->
+            <TextBlock x:Name="TitleText" FontSize="22" FontWeight="Bold" Margin="0 0 0 10"/>
+            <TextBlock x:Name="AuthorText" FontSize="14" FontStyle="Italic" Foreground="Gray" Margin="0 0 0 20"/>
             <TextBlock Text="Опис курсу:" FontWeight="Bold" Margin="0 0 0 5"/>
-            <TextBlock Text="Простий курс для початківців та зацікавлених." TextWrapping="Wrap" Margin="0 0 0 20"/>
-
-            <!-- Загальний рейтинг -->
+            <TextBlock x:Name="DescriptionText" TextWrapping="Wrap" Margin="0 0 0 20"/>
             <TextBlock Text="Рейтинг користувачів:" FontWeight="Bold"/>
-            <TextBlock Text="4.6" FontSize="16" Foreground="Orange" Margin="0 0 0 20"/>
+            <TextBlock x:Name="RatingText" FontSize="16" Foreground="Orange" Margin="0 0 0 20"/>
 
-            <!-- Відгуки -->
             <TextBlock Text="Відгуки:" FontWeight="Bold" Margin="0 0 0 10"/>
-            <ItemsControl ItemsSource="{Binding Reviews}">
+            <ItemsControl x:Name="ReviewsList">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Border Margin="0 0 0 10" Padding="10" Background="#F2F2F2" CornerRadius="5">
                             <StackPanel>
-                                <TextBlock Text="{Binding UserName}" FontWeight="Bold"/>
-                                <TextBlock Text="{Binding Comment}" TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding UserEmail}" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding Date}" FontStyle="Italic"/>
+                                <TextBlock Text="{Binding ReviewText}" TextWrapping="Wrap"/>
                             </StackPanel>
                         </Border>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
+
+            <Button x:Name="EnrollButton" Content="Записатися на курс" Height="40" Width="200" HorizontalAlignment="Center"
+                    Margin="0 20 0 0" Background="#27AE60" Foreground="White" Click="Enroll_Click"/>
         </StackPanel>
     </ScrollViewer>
 </Window>
+
 

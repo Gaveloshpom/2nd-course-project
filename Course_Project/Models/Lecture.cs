@@ -1,19 +1,15 @@
 ﻿using Newtonsoft.Json;
 
+
 namespace Course_Project.Models
 {
-    [JsonObject]
-    public class Lecture : IContentItem
+    public class Lecture
     {
-        [JsonProperty]
         public string Title { get; set; }
-
-        [JsonProperty]
-        public string Content { get; set; }
-
-        public string GetTitle() => Title;
-
-        public string GetContent() => Content;
+        public string Text { get; set; }
+        public int Likes { get; set; } = 0;
+        public int Dislikes { get; set; } = 0;
     }
 }
+
 

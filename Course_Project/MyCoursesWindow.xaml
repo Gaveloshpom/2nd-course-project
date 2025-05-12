@@ -5,28 +5,30 @@
         WindowStartupLocation="CenterOwner" Background="#FAFAFA">
 
     <Grid Margin="10">
-        <DataGrid x:Name="CoursesGrid" AutoGenerateColumns="False" IsReadOnly="True">
+        <DataGrid x:Name="CoursesGrid"
+                  ItemsSource="{Binding Courses}"
+                  SelectedItem="{Binding SelectedCourse, Mode=TwoWay}"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  Margin="0,0,0,50">
+
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="Auto"/>
                 <DataGridTextColumn Header="Назва" Binding="{Binding Title}" Width="*"/>
-                <DataGridTextColumn Header="Лайки" Binding="{Binding Likes}" Width="80"/>
-                <DataGridTextColumn Header="Дизлайки" Binding="{Binding Dislikes}" Width="80"/>
-                <DataGridTextColumn Header="Статус" Binding="{Binding Status}" Width="100"/>
+                <DataGridTextColumn Header="Опис" Binding="{Binding Description}" Width="2*"/>
+                <DataGridTextColumn Header="Статус" Binding="{Binding Status}" Width="120"/>
             </DataGrid.Columns>
         </DataGrid>
 
-        <!-- Кнопки -->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 10">
-            <Button Content="Опублікувати" Margin="5" Click="Publish_Click"/>
-            <Button Content="Редагувати зміст" Margin="5" Click="EditContent_Click"/>
-            <Button Content="Редагувати інфо" Margin="5" Click="EditInfo_Click"/>
-            <Button Content="Додати автора" Margin="5" Click="AddAuthor_Click"/>
-            <Button Content="Видалити курс" Margin="5" Click="DeleteCourse_Click"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,10,0,0">
+            <Button Content="Створити курс" Margin="5" Command="{Binding CreateCourseCommand}"/>
+            <Button Content="Опублікувати" Margin="5" Command="{Binding PublishCourseCommand}"/>
+            <Button Content="Редагувати зміст" Margin="5" Command="{Binding EditContentCommand}"/>
+            <Button Content="Редагувати інфо" Margin="5" Command="{Binding EditInfoCommand}"/>
+            <Button Content="Додати автора" Margin="5" Command="{Binding AddAuthorCommand}"/>
+            <Button Content="Видалити курс" Margin="5" Command="{Binding DeleteCourseCommand}"/>
         </StackPanel>
-        <Label Content=" 1   C# для початківців                                                                                                                                                                 14                    3           Опубліковано" Margin="0,25,0,413"/>
-        <Label Content=" 2   Python для початківців                                                                                                                                                          14                    3           Заморожено" Margin="0,51,0,387"/>
-        <Label Content=" 3   C++ для початківців                                                                                                                                                              14                    3           На розгляді" Margin="0,77,0,361"/>
     </Grid>
 </Window>
+
         
 

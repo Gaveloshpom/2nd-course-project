@@ -8,15 +8,23 @@ namespace Course_Project.Models
     public abstract class User : INotifyPropertyChanged
     {
         private string email;
+        private string password;
         private string name;
         private string surname;
-        private DateTime dateOfBirth;
+        private string role;
 
         [JsonProperty]
         public string Email
         {
             get => email;
             set { email = value; OnPropertyChanged(nameof(Email)); }
+        }
+
+        [JsonProperty]
+        public string Password
+        {
+            get => password;
+            set { password = value; OnPropertyChanged(nameof(Password)); }
         }
 
         [JsonProperty]
@@ -34,10 +42,10 @@ namespace Course_Project.Models
         }
 
         [JsonProperty]
-        public DateTime DateOfBirth
+        public string Role
         {
-            get => dateOfBirth;
-            set { dateOfBirth = value; OnPropertyChanged(nameof(DateOfBirth)); }
+            get => role;
+            set { role = value; OnPropertyChanged(nameof(Role)); }
         }
 
         public abstract bool Authorize(string email, string password);
@@ -48,3 +56,4 @@ namespace Course_Project.Models
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }
+

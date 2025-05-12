@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Course_Maket
+namespace OnlineCourseApp
 {
     /// <summary>
     /// Interaction logic for AuthorDashboardWindow.xaml
@@ -22,6 +22,16 @@ namespace Course_Maket
         public AuthorDashboardWindow()
         {
             InitializeComponent();
+        }
+
+        private void OpenMyCourses_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void CreateCourse_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }
