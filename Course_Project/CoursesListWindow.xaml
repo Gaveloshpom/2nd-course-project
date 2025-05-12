@@ -1,0 +1,11 @@
+﻿<Window x:Class="OnlineCourseApp.CoursesListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Курси" Height="500" Width="700"
+        WindowStartupLocation="CenterOwner" Background="#FAFAFA">
+
+    <ScrollViewer>
+        <WrapPanel x:Name="CoursesWrapPanel" Margin="10"/>
+    </ScrollViewer>
+</Window>
+

@@ -31,25 +31,56 @@ namespace OnlineCourseApp
             {
                 ReviewsList.ItemsSource = new[] { new { UserEmail = "", Date = "", ReviewText = "Відгуків ще немає." } };
             }
+
+            UpdateEnrollButton();
+        }
+
+        private void UpdateEnrollButton()
+        {
+            if (App.CurrentUser is RegisteredUser user)
+            {
+                if (user.CompletedCourses.Contains(_course.Id))
+                {
+                    EnrollButton.Content = "Курс завершено";
+                    EnrollButton.IsEnabled = false;
+                }
+                else if (user.EnrolledCourses.Contains(_course.Id))
+                {
+                    EnrollButton.Content = "Пройти курс";
+                    EnrollButton.Click -= Enroll_Click;
+                    EnrollButton.Click += ContinueCourse_Click;
+                }
+                else
+                {
+                    EnrollButton.Content = "Записатися на курс";
+                    EnrollButton.Click -= ContinueCourse_Click;
+                    EnrollButton.Click += Enroll_Click;
+                }
+            }
+            else
+            {
+                EnrollButton.Content = "Увійдіть для доступу";
+                EnrollButton.IsEnabled = false;
+            }
         }
 
         private void Enroll_Click(object sender, RoutedEventArgs e)
         {
             if (App.CurrentUser is RegisteredUser user)
             {
-                if (user.EnrolledCourses.Contains(_course.Id))
+                if (user.EnrollToCourse(_course))
                 {
-                    MessageBox.Show("Ви вже записані на цей курс.");
-                    return;
+                    MessageBox.Show("Ви успішно записалися на курс!");
+                    UpdateEnrollButton();
                 }
+            }
+        }
 
-                user.EnrolledCourses.Add(_course.Id);
-                MessageBox.Show("Ви успішно записалися на курс!");
-            }
-            else
-            {
-                MessageBox.Show("Будь ласка, увійдіть у свій акаунт.");
-            }
+        private void ContinueCourse_Click(object sender, RoutedEventArgs e)
+        {
+            var viewer = new CourseViewerWindow(_course);
+            viewer.Owner = this;
+            viewer.ShowDialog();
         }
     }
 }

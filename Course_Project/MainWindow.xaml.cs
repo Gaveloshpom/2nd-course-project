@@ -114,6 +114,19 @@ namespace OnlineCourseApp
                 CoursesWrapPanel.Children.Add(card);
             }
         }
+        private void OpenProfile_Click(object sender, RoutedEventArgs e)
+        {
+            if (App.CurrentUser is RegisteredUser user)
+            {
+                var profileWin = new ProfileWindow(user);
+                profileWin.Owner = this;
+                profileWin.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Будь ласка, увійдіть в акаунт.");
+            }
+        }
 
         private Border CreateCourseCard(Course course)
         {

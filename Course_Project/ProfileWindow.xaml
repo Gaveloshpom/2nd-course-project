@@ -16,18 +16,28 @@
 
         <!-- Інформація -->
         <StackPanel Grid.Row="1" Margin="0 0 0 20">
-            <TextBlock Text="Ім’я: Іван" FontSize="16" Margin="0 5"/>
-            <TextBlock Text="Прізвище: Іваненко" FontSize="16" Margin="0 5"/>
-            <TextBlock Text="Email: ivan.potuznyi@example.com" FontSize="16" Margin="0 5"/>
-            <TextBlock Text="Дата народження: 01.01.2000" FontSize="16" Margin="0 5"/>
-            <TextBlock Text="Роль: Зареєстрований користувач" FontSize="16" Margin="0 5"/>
+            <TextBlock x:Name="NameText" FontSize="16" Margin="0 5"/>
+            <TextBlock x:Name="SurnameText" FontSize="16" Margin="0 5"/>
+            <TextBlock x:Name="EmailText" FontSize="16" Margin="0 5"/>
+            <TextBlock x:Name="RoleText" FontSize="16" Margin="0 5"/>
         </StackPanel>
 
-        <!-- Кнопка -->
-        <Button Grid.Row="1" Content="Редагувати профіль" Height="35" Width="180"
-                HorizontalAlignment="Left"
-                Background="#3498DB" Foreground="White" FontWeight="Bold"
-                Click="EditProfile_Click" Margin="0,257,0,0" Grid.RowSpan="2" VerticalAlignment="Top"/>
+        <!-- Кнопки -->
+        <StackPanel Grid.Row="2" Orientation="Vertical" Margin="0 20 0 0">
+            <Button Content="Записані курси" Height="40" Width="200"
+                    Background="#3498DB" Foreground="White" FontWeight="Bold"
+                    HorizontalAlignment="Left" Click="EnrolledCourses_Click" Margin="0 0 0 10"/>
+            <Button Content="Завершені курси" Height="40" Width="200"
+                    Background="#2ECC71" Foreground="White" FontWeight="Bold"
+                    HorizontalAlignment="Left" Click="CompletedCourses_Click"/>
+        </StackPanel>
+
+        <!-- Редагування -->
+        <Button Content="Редагувати профіль" Height="35" Width="180"
+                Background="#F39C12" Foreground="White" FontWeight="Bold"
+                HorizontalAlignment="Right" VerticalAlignment="Top" Click="EditProfile_Click"/>
     </Grid>
 </Window>
+
+
 

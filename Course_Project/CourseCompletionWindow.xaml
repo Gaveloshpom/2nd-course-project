@@ -9,8 +9,16 @@
 
         <!-- Рейтинг -->
         <TextBlock Text="Оцініть курс (1–5):" FontWeight="Bold" Margin="0 5"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 0 0 10">
+            <TextBlock Text="1" Margin="32 0" Foreground="Gray"/>
+            <TextBlock Text="2" Margin="32 0" Foreground="Gray"/>
+            <TextBlock Text="3" Margin="32 0" Foreground="Gray"/>
+            <TextBlock Text="4" Margin="32 0" Foreground="Gray"/>
+            <TextBlock Text="5" Margin="32 0" Foreground="Gray"/>
+        </StackPanel>
+
         <Slider x:Name="RatingSlider" Minimum="1" Maximum="5" TickFrequency="1"
-        IsSnapToTickEnabled="True" Width="200" Margin="0 0 0 20"
+        IsSnapToTickEnabled="True" Width="300" Margin="0 0 0 20"
         Value="5"/>
 
         <!-- Відгук -->

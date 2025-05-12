@@ -71,6 +71,9 @@
     <Compile Include="CourseReviewsWindow.xaml.cs">
       <DependentUpon>CourseReviewsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CoursesListWindow.xaml.cs">
+      <DependentUpon>CoursesListWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CourseViewerWindow.xaml.cs">
       <DependentUpon>CourseViewerWindow.xaml</DependentUpon>
     </Compile>
@@ -148,6 +151,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="CourseReviewsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CoursesListWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

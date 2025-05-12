@@ -1,4 +1,6 @@
 ﻿using Course_Project.Models;
+using Maket_View_test_1;
+using System.Runtime.Remoting.Contexts;
 using System.Windows;
 
 namespace OnlineCourseApp
@@ -9,6 +11,7 @@ namespace OnlineCourseApp
         private readonly bool _isAdmin;
 
         private bool _hasVoted = false;
+        private bool _answeredCorrectly = false;
 
         public CourseContentPlayerWindow(ContentBlock block, bool isAdmin = false)
         {
@@ -77,7 +80,10 @@ namespace OnlineCourseApp
             if (_block.Type == "Практика" && _block.PracticeData != null)
             {
                 if (AnswerBox.Text.Trim().Equals(_block.PracticeData.Answer, System.StringComparison.OrdinalIgnoreCase))
-                    MessageBox.Show("Правильно!");
+                {
+                    _answeredCorrectly = true;
+                    MessageBox.Show("Правильна відповідь! Ви можете натиснути Далі.");
+                }
                 else
                     MessageBox.Show("Неправильно!");
             }
@@ -85,9 +91,23 @@ namespace OnlineCourseApp
 
         private void Next_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = true;
+            if (_block.Type == "Практика")
+            {
+                if (!(App.CurrentUser is RegisteredUser user) || user.Role != "Admin")
+                {
+                    if (!_answeredCorrectly)
+                    {
+                        MessageBox.Show("Будь ласка, введіть правильну відповідь перед переходом далі.");
+                        return;
+                    }
+                }
+            }
+
+            DialogResult = true;
             Close();
         }
+
+
     }
 }
 

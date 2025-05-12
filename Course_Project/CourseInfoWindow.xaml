@@ -28,7 +28,7 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
 
-            <Button Content="Записатися на курс" Height="40" Width="200" HorizontalAlignment="Center"
+            <Button x:Name="EnrollButton" Content="Записатися на курс" Height="40" Width="200" HorizontalAlignment="Center"
                     Margin="0 20 0 0" Background="#27AE60" Foreground="White" Click="Enroll_Click"/>
         </StackPanel>
     </ScrollViewer>
