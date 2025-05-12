@@ -74,6 +74,15 @@ namespace OnlineCourseApp
                         AuthorPanelButton.IsEnabled = false;
                         AuthorPanelButton.Visibility = Visibility.Collapsed;
                     }
+
+                    if (App.CurrentUser?.Role == "Admin")
+                    {
+                        AdminPanelButton.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        AdminPanelButton.Visibility = Visibility.Collapsed;
+                    }
                 }
             }
         }
@@ -83,6 +92,13 @@ namespace OnlineCourseApp
             var panel = new MyCoursesWindow(App.CurrentUser);
             panel.Owner = this;
             panel.ShowDialog();
+        }
+
+        private void AdminPanelButton_Click(object sender, RoutedEventArgs e)
+        {
+            var adminWindow = new AdminPanelWindow();
+            adminWindow.Owner = this;
+            adminWindow.ShowDialog();
         }
     }
 }
