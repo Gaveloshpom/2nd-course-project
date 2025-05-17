@@ -28,13 +28,36 @@ namespace OnlineCourseApp
             InitializeComponent();
             DataContext = new MainWindowViewModel();
 
-            var user = App.CurrentUser;
-            if (user != null && user.Role == "Автор курсу")
-            {
-                AuthorPanelButton.Visibility = Visibility.Visible;
-            }
+            //var user = App.CurrentUser;
+            //if (user != null && user.Role == "Автор курсу")
+            //{
+            //    AuthorPanelButton.Visibility = Visibility.Visible;
+            //}
 
             LoadCourses();
+
+            if (App.CurrentUser != null)
+            {
+                if (App.CurrentUser.Role == "Автор курсу")
+                {
+                    AuthorPanelButton.IsEnabled = true;
+                    AuthorPanelButton.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    AuthorPanelButton.IsEnabled = false;
+                    AuthorPanelButton.Visibility = Visibility.Collapsed;
+                }
+
+                if (App.CurrentUser?.Role == "Admin")
+                {
+                    AdminPanelButton.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    AdminPanelButton.Visibility = Visibility.Collapsed;
+                }
+            }
 
             //if (App.CurrentUser != null)
             //{
@@ -64,6 +87,7 @@ namespace OnlineCourseApp
                 LoginButton.Visibility = Visibility.Collapsed;
                 UsernameLabel.Content = $"Вітаємо, {user.Name} {user.Surname}!";
                 UsernameLabel.Visibility = Visibility.Visible;
+                SwitchUserButton.Visibility = Visibility.Visible;
 
                 if (App.CurrentUser != null)
                 {
@@ -158,5 +182,15 @@ namespace OnlineCourseApp
 
             return border;
         }
+
+        private void SwitchUser_Click(object sender, RoutedEventArgs e)
+        {
+            if (App.CurrentUser is RegisteredUser user)
+            {
+                LoginButton_Click(sender, e);      // ТАК РОБИТИ НЕ МОЖНА! ПЕРЕРОБИТИ ЗА ПРИСУТНОСТІ ЧАСУ!!!
+            }
+            else { MessageBox.Show("Будь ласка, увійдіть в акаунт."); }
+        }
+
     }
 }
