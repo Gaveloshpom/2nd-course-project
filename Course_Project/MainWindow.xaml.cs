@@ -35,6 +35,7 @@ namespace OnlineCourseApp
             //}
 
             LoadCourses();
+            LoadTopCourses();
 
             if (App.CurrentUser != null)
             {
@@ -149,6 +150,21 @@ namespace OnlineCourseApp
             else
             {
                 MessageBox.Show("Будь ласка, увійдіть в акаунт.");
+            }
+        }
+
+        private void LoadTopCourses()
+        {
+            var topCourses = CourseService.LoadCourses()
+                .Where(c => c.Status == "Опубліковано")
+                .OrderByDescending(c => c.Rating)
+                .Take(3)
+                .ToList();
+
+            foreach (var course in topCourses)
+            {
+                var card = CreateCourseCard(course);
+                TopCoursesPanel.Children.Add(card);
             }
         }
 

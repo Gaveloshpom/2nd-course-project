@@ -102,7 +102,7 @@ public class AdminPanelViewModel : INotifyPropertyChanged
             return;
         }
 
-        foreach (var block in SelectedCourse.ContentBlocks.OrderBy(b => b.Id))
+        foreach (var block in SelectedCourse.ContentBlocks)
         {
             var window = new CourseContentPlayerWindow(block, isAdmin: true);
             window.Owner = Application.Current.MainWindow;

@@ -15,7 +15,7 @@ namespace OnlineCourseApp
         {
             InitializeComponent();
             _course = course;
-            _blocks = _course.ContentBlocks.OrderBy(b => b.Id).ToList();
+            _blocks = _course.ContentBlocks.ToList();
 
             CourseTitle.Text = _course.Title;
             ProgressText.Text = $"Готові пройти {_blocks.Count} пунктів?";

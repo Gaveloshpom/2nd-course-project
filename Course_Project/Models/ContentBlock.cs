@@ -7,7 +7,7 @@ namespace Course_Project.Models
         public string Type { get; set; }
         public Lecture LectureData { get; set; }
         public Practice PracticeData { get; set; }
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public string Title => Type == "Лекція" ? LectureData?.Title : PracticeData?.Title;
         public int Likes => Type == "Лекція" ? LectureData?.Likes ?? 0 : PracticeData?.Likes ?? 0;
         public int Dislikes => Type == "Лекція" ? LectureData?.Dislikes ?? 0 : PracticeData?.Dislikes ?? 0;
