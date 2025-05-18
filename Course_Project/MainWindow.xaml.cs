@@ -36,6 +36,7 @@ namespace OnlineCourseApp
 
             LoadCourses();
             LoadTopCourses();
+            
 
             if (App.CurrentUser != null)
             {
@@ -131,7 +132,7 @@ namespace OnlineCourseApp
 
         private void LoadCourses()
         {
-            var publishedCourses = CourseService.LoadCourses().Where(c => c.Status == "Опубліковано").ToList();
+            var publishedCourses = CourseService.LoadCourses().Where(c => c.Status == "Опубліковано").OrderByDescending(c => c.Rating).Skip(3).ToList();
 
             foreach (var course in publishedCourses)
             {
@@ -173,7 +174,7 @@ namespace OnlineCourseApp
             var border = new Border
             {
                 Background = Brushes.White,
-                Width = 220,
+                Width = 230,
                 Height = 150,
                 Margin = new Thickness(10),
                 Padding = new Thickness(10),
