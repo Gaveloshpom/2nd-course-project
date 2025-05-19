@@ -132,7 +132,11 @@ namespace OnlineCourseApp
 
         private void LoadCourses()
         {
-            var publishedCourses = CourseService.LoadCourses().Where(c => c.Status == "Опубліковано").OrderByDescending(c => c.Rating).Skip(3).ToList();
+            var publishedCourses = CourseService.LoadCourses().
+                Where(c => c.Status == "Опубліковано").
+                OrderByDescending(c => c.Rating).
+                Skip(3).
+                ToList();
 
             foreach (var course in publishedCourses)
             {

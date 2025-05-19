@@ -84,7 +84,6 @@
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\ContentBlock.cs" />
     <Compile Include="Models\Course.cs" />
-    <Compile Include="Models\CourseContentItem.cs" />
     <Compile Include="Models\CourseReview.cs" />
     <Compile Include="Models\CourseService.cs" />
     <Compile Include="Models\CourseStorage.cs" />
@@ -101,7 +100,6 @@
     <Compile Include="ViewModels\MyCoursesViewModel.cs" />
     <Compile Include="ViewModels\CreateCourseViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
-    <Compile Include="Models\Review.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserService.cs" />
     <Compile Include="Models\UserStorage.cs" />
@@ -296,9 +294,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Converters\" />
-    <Folder Include="Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

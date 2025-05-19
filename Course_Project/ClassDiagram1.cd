@@ -1,70 +1,134 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Course_Project.Models.Admin">
-    <Position X="3" Y="0.5" Width="1.5" />
+  <Class Name="Course_Project.Models.Admin" Collapsed="true">
+    <Position X="13.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAkAAAAAAAAAAAAAQAAAAAAAAAAAAJAAAAAA=</HashCode>
+      <HashCode>IAAAAAAAAkAAAAAAAggAAAAQAAAAAAAAAAAAJAAAAAA=</HashCode>
       <FileName>Models\Admin.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Course_Project.Models.Author">
-    <Position X="4.5" Y="0.5" Width="1.5" />
+  <Class Name="Course_Project.Models.Author" Collapsed="true">
+    <Position X="12" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAABAAAAACAAAAAABQAAAAAIAAAAAg=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAACAAAAAAAQAAAAAIAAAAAA=</HashCode>
       <FileName>Models\Author.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Course_Project.Models.Course">
-    <Position X="6" Y="0.5" Width="1.5" />
+  <Class Name="Course_Project.Models.ContentBlock" Collapsed="true">
+    <Position X="5.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAQEAgAEAAIAAAAAAAkAAAAAAIAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAABAAEAAIAAAAAAAgBAAAAACAQQAAAAABAA=</HashCode>
+      <FileName>Models\ContentBlock.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Course_Project.Models.Course" Collapsed="true">
+    <Position X="5.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEBCAEAEAIAgAEAEIwAAAAAAgAAAAAEAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Course.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Course_Project.Models.Lecture">
-    <Position X="9" Y="0.5" Width="1.5" />
+  <Class Name="Course_Project.Models.CourseReview" Collapsed="true">
+    <Position X="5.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAQgAAAEAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAAAAABAAAACAAAAAA=</HashCode>
+      <FileName>Models\CourseReview.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_Project.Models.CourseService" Collapsed="true">
+    <Position X="7.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAIAAAAAAAAIAABAAAAAAAAEAIAAAAIAAAAIA=</HashCode>
+      <FileName>Models\CourseService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_Project.Models.CourseStorage" Collapsed="true">
+    <Position X="7.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Models\CourseStorage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_Project.Models.Guest" Collapsed="true">
+    <Position X="10.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAkAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Guest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_Project.Models.Lecture" Collapsed="true">
+    <Position X="5.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAACAAQACAAAAAA=</HashCode>
       <FileName>Models\Lecture.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Course_Project.Models.Practice">
-    <Position X="10.5" Y="0.5" Width="1.5" />
+  <Class Name="Course_Project.Models.Practice" Collapsed="true">
+    <Position X="5.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAQAAAAEAAAAAAAAAAAAAAAABAACQAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAGAAQAAgAAAAA=</HashCode>
       <FileName>Models\Practice.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Course_Project.Models.RegisteredUser" Collapsed="true">
-    <Position X="3" Y="3.5" Width="1.5" />
+    <Position X="12" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAIkAAAAAAAAAAAAAAEABAAAAAAAAAAAAgAAA=</HashCode>
+      <HashCode>IAAAAAAAAkAAAAAAAggAAAAAAAAAAAAACAAgAAAAQAA=</HashCode>
       <FileName>Models\RegisteredUser.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="Course_Project.Models.Review">
-    <Position X="12" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAAEBAAAACAAAAAA=</HashCode>
-      <FileName>Models\Review.cs</FileName>
-    </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Course_Project.Models.User" Collapsed="true">
-    <Position X="1.25" Y="3.25" Width="1.5" />
+    <Position X="12" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAmAAAAAgIAAEAAQAhAAUAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAmAAAAAgMAAEABQAhAAEAAACAAAAAgAAAAA=</HashCode>
       <FileName>Models\User.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Interface Name="Course_Project.Models.IContentItem">
-    <Position X="7.5" Y="0.5" Width="1.5" />
+  <Class Name="Course_Project.Models.UserService" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAJAAAAAAAA=</HashCode>
+      <FileName>Models\UserService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_Project.Models.UserStorage" Collapsed="true">
+    <Position X="7.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAgKAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Models\UserStorage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Course_Project.Models.ValidationHelper" Collapsed="true">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAgAAAYAAAAAAAAIAAAACAAIgAABABAAIAAAAA=</HashCode>
+      <FileName>Models\ValidationHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Course_Project.Models.IContentItem" Collapsed="true">
+    <Position X="3" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAEAAAAAAAAAAAAAAAAACAAQAAAAAAAA=</HashCode>
       <FileName>Models\IContentItem.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Course_Project.Models.ICourseManageable" Collapsed="true">
+    <Position X="3" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAACAAAAAAAQAAAAAIAAAAAA=</HashCode>
+      <FileName>Models\ICourseManageable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Course_Project.Models.ICourseViewable" Collapsed="true">
+    <Position X="3" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAgAAAAQAA=</HashCode>
+      <FileName>Models\ICourseViewable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />

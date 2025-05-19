@@ -10,9 +10,6 @@ namespace Course_Project.Models
     {
         private static readonly string filePath = "courses.json";
 
-        /// <summary>
-        /// Завантажує всі курси з JSON-файлу
-        /// </summary>
         public static List<Course> LoadCourses()
         {
             if (!File.Exists(filePath))
@@ -22,18 +19,12 @@ namespace Course_Project.Models
             return JsonConvert.DeserializeObject<List<Course>>(json) ?? new List<Course>();
         }
 
-        /// <summary>
-        /// Зберігає вказаний список курсів у файл
-        /// </summary>
         public static void SaveCourses(List<Course> courses)
         {
             var json = JsonConvert.SerializeObject(courses, Formatting.Indented);
             File.WriteAllText(filePath, json);
         }
 
-        /// <summary>
-        /// Додає новий курс і зберігає
-        /// </summary>
         public static void AddCourse(Course course)
         {
             var courses = LoadCourses();
@@ -41,9 +32,6 @@ namespace Course_Project.Models
             SaveCourses(courses);
         }
 
-        /// <summary>
-        /// Оновлює існуючий курс (за Title + Email автора)
-        /// </summary>
         public static void UpdateCourse(Course course)
         {
             var courses = LoadCourses();
@@ -58,9 +46,6 @@ namespace Course_Project.Models
             SaveCourses(courses);
         }
 
-        /// <summary>
-        /// Видаляє курс за Title + будь-який email автора
-        /// </summary>
         public static void DeleteCourse(Course course)
         {
             var courses = LoadCourses();
@@ -68,9 +53,6 @@ namespace Course_Project.Models
             SaveCourses(courses);
         }
 
-        /// <summary>
-        /// Повертає курси певного автора
-        /// </summary>
         public static List<Course> GetCoursesByAuthor(string authorEmail)
         {
             var courses = LoadCourses();
