@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Course_Project.Models
 {
@@ -14,6 +15,18 @@ namespace Course_Project.Models
         //    Name = newName;
         //    Surname = newSurname;
         //}
+
+        public List<Guid> CompletedCourses { get; set; } = new List<Guid>();
+        public List<Guid> EnrolledCourses { get; set; } = new List<Guid>();
+
+        public bool EnrollToCourse(Course course)
+        {
+            if (course == null || EnrolledCourses.Contains(course.Id))
+                return false;
+
+            EnrolledCourses.Add(course.Id);
+            return true;
+        }
 
         public bool ApproveCourse(Course course)
         {
