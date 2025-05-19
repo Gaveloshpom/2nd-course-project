@@ -28,13 +28,38 @@ namespace OnlineCourseApp
             InitializeComponent();
             DataContext = new MainWindowViewModel();
 
-            var user = App.CurrentUser;
-            if (user != null && user.Role == "Автор курсу")
-            {
-                AuthorPanelButton.Visibility = Visibility.Visible;
-            }
+            //var user = App.CurrentUser;
+            //if (user != null && user.Role == "Автор курсу")
+            //{
+            //    AuthorPanelButton.Visibility = Visibility.Visible;
+            //}
 
             LoadCourses();
+            LoadTopCourses();
+            
+
+            if (App.CurrentUser != null)
+            {
+                if (App.CurrentUser.Role == "Автор курсу")
+                {
+                    AuthorPanelButton.IsEnabled = true;
+                    AuthorPanelButton.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    AuthorPanelButton.IsEnabled = false;
+                    AuthorPanelButton.Visibility = Visibility.Collapsed;
+                }
+
+                if (App.CurrentUser?.Role == "Admin")
+                {
+                    AdminPanelButton.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    AdminPanelButton.Visibility = Visibility.Collapsed;
+                }
+            }
 
             //if (App.CurrentUser != null)
             //{
@@ -64,6 +89,7 @@ namespace OnlineCourseApp
                 LoginButton.Visibility = Visibility.Collapsed;
                 UsernameLabel.Content = $"Вітаємо, {user.Name} {user.Surname}!";
                 UsernameLabel.Visibility = Visibility.Visible;
+                SwitchUserButton.Visibility = Visibility.Visible;
 
                 if (App.CurrentUser != null)
                 {
@@ -106,7 +132,7 @@ namespace OnlineCourseApp
 
         private void LoadCourses()
         {
-            var publishedCourses = CourseService.LoadCourses().Where(c => c.Status == "Опубліковано").ToList();
+            var publishedCourses = CourseService.LoadCourses().Where(c => c.Status == "Опубліковано").OrderByDescending(c => c.Rating).Skip(3).ToList();
 
             foreach (var course in publishedCourses)
             {
@@ -128,12 +154,27 @@ namespace OnlineCourseApp
             }
         }
 
+        private void LoadTopCourses()
+        {
+            var topCourses = CourseService.LoadCourses()
+                .Where(c => c.Status == "Опубліковано")
+                .OrderByDescending(c => c.Rating)
+                .Take(3)
+                .ToList();
+
+            foreach (var course in topCourses)
+            {
+                var card = CreateCourseCard(course);
+                TopCoursesPanel.Children.Add(card);
+            }
+        }
+
         private Border CreateCourseCard(Course course)
         {
             var border = new Border
             {
                 Background = Brushes.White,
-                Width = 220,
+                Width = 230,
                 Height = 150,
                 Margin = new Thickness(10),
                 Padding = new Thickness(10),
@@ -158,5 +199,15 @@ namespace OnlineCourseApp
 
             return border;
         }
+
+        private void SwitchUser_Click(object sender, RoutedEventArgs e)
+        {
+            if (App.CurrentUser is RegisteredUser user)
+            {
+                LoginButton_Click(sender, e);      // ТАК РОБИТИ НЕ МОЖНА! ПЕРЕРОБИТИ ЗА ПРИСУТНОСТІ ЧАСУ!!!
+            }
+            else { MessageBox.Show("Будь ласка, увійдіть в акаунт."); }
+        }
+
     }
 }

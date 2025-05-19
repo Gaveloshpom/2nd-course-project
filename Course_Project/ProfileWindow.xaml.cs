@@ -20,7 +20,7 @@ namespace OnlineCourseApp
             NameText.Text = $"Ім’я: {_user.Name}";
             SurnameText.Text = $"Прізвище: {_user.Surname}";
             EmailText.Text = $"Email: {_user.Email}";
-            RoleText.Text = $"Роль: Зареєстрований користувач";
+            RoleText.Text = $"Роль: {_user.Role}";
         }
 
         private void EnrolledCourses_Click(object sender, RoutedEventArgs e)

@@ -116,18 +116,18 @@ namespace Course_Project.ViewModels
         {
             _course.ContentBlocks = ContentItems.ToList();
             CourseService.UpdateCourse(_course);
-            RefreshIds();
+            //RefreshIds();
         }
 
-        private void RefreshIds()
-        {
-            int index = 1;
-            foreach (var item in ContentItems)
-            {
-                item.Id = index++;
-                item.Refresh(); // оновлення UI
-            }
-        }
+        //private void RefreshIds()
+        //{
+        //    int index = 1;
+        //    foreach (var item in ContentItems)
+        //    {
+        //        item.Id = index++;
+        //        item.Refresh(); 
+        //    }
+        //}
 
         private void EditSelected()
         {
