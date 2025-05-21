@@ -88,7 +88,6 @@
     <Compile Include="Models\CourseService.cs" />
     <Compile Include="Models\CourseStorage.cs" />
     <Compile Include="Models\Guest.cs" />
-    <Compile Include="Models\IContentItem.cs" />
     <Compile Include="Models\ICourseManageable.cs" />
     <Compile Include="Models\ICourseViewable.cs" />
     <Compile Include="Models\Lecture.cs" />

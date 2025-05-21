@@ -3,7 +3,7 @@
   <Class Name="Course_Project.Models.Admin" Collapsed="true">
     <Position X="13.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAAAAAAAkAAAAAAAggAAAAQAAAAAAAAAAAAJAAAAAA=</HashCode>
+      <HashCode>IAAAAAAAAkAAAAAAAggAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Admin.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -110,13 +110,6 @@
       <FileName>Models\ValidationHelper.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Interface Name="Course_Project.Models.IContentItem" Collapsed="true">
-    <Position X="3" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAgAAAEAAAAAAAAAAAAAAAAACAAQAAAAAAAA=</HashCode>
-      <FileName>Models\IContentItem.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
   <Interface Name="Course_Project.Models.ICourseManageable" Collapsed="true">
     <Position X="3" Y="2.25" Width="1.5" />
     <TypeIdentifier>
@@ -130,6 +123,10 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAgAAAAQAA=</HashCode>
       <FileName>Models\ICourseViewable.cs</FileName>
     </TypeIdentifier>
+  </Interface>
+  <Interface Name="System.ComponentModel.INotifyPropertyChanged" Collapsed="true">
+    <Position X="3" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
   </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
