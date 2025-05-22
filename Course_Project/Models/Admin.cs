@@ -5,17 +5,6 @@ namespace Course_Project.Models
 {
     public class Admin : User
     {
-        //public override bool Authorize(string email, string password)
-        //{
-        //    return true; // Заглушка
-        //}
-
-        //public override void EditProfile(string newName, string newSurname)
-        //{
-        //    Name = newName;
-        //    Surname = newSurname;
-        //}
-
         public List<Guid> CompletedCourses { get; set; } = new List<Guid>();
         public List<Guid> EnrolledCourses { get; set; } = new List<Guid>();
 
@@ -28,20 +17,20 @@ namespace Course_Project.Models
             return true;
         }
 
-        public bool ApproveCourse(Course course)
-        {
-            return true; // Заглушка
-        }
+        //public bool ApproveCourse(Course course)
+        //{
+        //    return true; // Заглушка
+        //}
 
-        public bool FreezeCourse(Course course, string reason)
-        {
-            return !string.IsNullOrWhiteSpace(reason); // Заглушка
-        }
+        //public bool FreezeCourse(Course course, string reason)
+        //{
+        //    return !string.IsNullOrWhiteSpace(reason); // Заглушка
+        //}
 
-        public bool DeleteCourse(Course course, string reason)
-        {
-            return !string.IsNullOrWhiteSpace(reason); // Заглушка
-        }
+        //public bool DeleteCourse(Course course, string reason)
+        //{
+        //    return !string.IsNullOrWhiteSpace(reason); // Заглушка
+        //}
 
         public override bool Authorize(string email, string password)
         {

@@ -127,12 +127,19 @@ namespace OnlineCourseApp
         {
             var adminWindow = new AdminPanelWindow();
             adminWindow.Owner = this;
-            adminWindow.ShowDialog();
+
+            var result = adminWindow.ShowDialog();
+
+            RefreshCourses();     
         }
 
         private void LoadCourses()
         {
-            var publishedCourses = CourseService.LoadCourses().Where(c => c.Status == "Опубліковано").OrderByDescending(c => c.Rating).Skip(3).ToList();
+            var publishedCourses = CourseService.LoadCourses().
+                Where(c => c.Status == "Опубліковано").
+                OrderByDescending(c => c.Rating).
+                Skip(3).
+                ToList();
 
             foreach (var course in publishedCourses)
             {
@@ -200,11 +207,21 @@ namespace OnlineCourseApp
             return border;
         }
 
+        public void RefreshCourses()
+        {
+            TopCoursesPanel.Children.Clear();
+            CoursesWrapPanel.Children.Clear(); 
+
+            LoadCourses();
+            LoadTopCourses();
+        }
+
+
         private void SwitchUser_Click(object sender, RoutedEventArgs e)
         {
             if (App.CurrentUser is RegisteredUser user)
             {
-                LoginButton_Click(sender, e);      // ТАК РОБИТИ НЕ МОЖНА! ПЕРЕРОБИТИ ЗА ПРИСУТНОСТІ ЧАСУ!!!
+                LoginButton_Click(sender, e);      // ТАК РОБИТИ НЕ МОЖНА! ПЕРЕРОБИТИ ЗА НАЯВНОСТІ ЧАСУ!!!
             }
             else { MessageBox.Show("Будь ласка, увійдіть в акаунт."); }
         }

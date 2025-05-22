@@ -58,6 +58,9 @@ namespace OnlineCourseApp
 
             MessageBox.Show("Профіль оновлено успішно!", "Готово", MessageBoxButton.OK, MessageBoxImage.Information);
             DialogResult = true;
+            NameBox.Text = _user.Name;
+            SurnameBox.Text = _user.Surname;
+            EmailBox.Text = _user.Email;
             Close();
         }
 

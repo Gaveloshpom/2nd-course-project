@@ -59,6 +59,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddLectureWindow.xaml.cs">
+      <DependentUpon>AddLectureWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdminLogsWindow.xaml.cs">
       <DependentUpon>AdminLogsWindow.xaml</DependentUpon>
     </Compile>
@@ -67,9 +70,6 @@
     </Compile>
     <Compile Include="CourseContentPlayerWindow.xaml.cs">
       <DependentUpon>CourseContentPlayerWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CourseReviewsWindow.xaml.cs">
-      <DependentUpon>CourseReviewsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="CoursesListWindow.xaml.cs">
       <DependentUpon>CoursesListWindow.xaml</DependentUpon>
@@ -84,12 +84,10 @@
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\ContentBlock.cs" />
     <Compile Include="Models\Course.cs" />
-    <Compile Include="Models\CourseContentItem.cs" />
     <Compile Include="Models\CourseReview.cs" />
     <Compile Include="Models\CourseService.cs" />
     <Compile Include="Models\CourseStorage.cs" />
     <Compile Include="Models\Guest.cs" />
-    <Compile Include="Models\IContentItem.cs" />
     <Compile Include="Models\ICourseManageable.cs" />
     <Compile Include="Models\ICourseViewable.cs" />
     <Compile Include="Models\Lecture.cs" />
@@ -101,7 +99,6 @@
     <Compile Include="ViewModels\MyCoursesViewModel.cs" />
     <Compile Include="ViewModels\CreateCourseViewModel.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
-    <Compile Include="Models\Review.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserService.cs" />
     <Compile Include="Models\UserStorage.cs" />
@@ -119,8 +116,8 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="AddLectureWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddPracticalTaskWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -134,10 +131,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AuthorDashboardWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="CourseCompletionWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -149,10 +142,6 @@
     <Page Include="CourseInfoWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="CourseReviewsWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CoursesListWindow.xaml">
       <SubType>Designer</SubType>
@@ -178,10 +167,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="LectureViewWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -193,18 +178,12 @@
     <Compile Include="AddAuthorWindow.xaml.cs">
       <DependentUpon>AddAuthorWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddLectureWindow.xaml.cs">
-      <DependentUpon>AddLectureWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="AddPracticalTaskWindow.xaml.cs">
       <DependentUpon>AddPracticalTaskWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="AuthorDashboardWindow.xaml.cs">
-      <DependentUpon>AuthorDashboardWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="CourseCompletionWindow.xaml.cs">
       <DependentUpon>CourseCompletionWindow.xaml</DependentUpon>
@@ -221,9 +200,6 @@
     <Compile Include="EditProfileWindow.xaml.cs">
       <DependentUpon>EditProfileWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LectureViewWindow.xaml.cs">
-      <DependentUpon>LectureViewWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -231,15 +207,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ManageCoursesWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="MyCoursesWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="PracticalTaskViewWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -257,14 +225,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ManageCoursesWindow.xaml.cs">
-      <DependentUpon>ManageCoursesWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MyCoursesWindow.xaml.cs">
       <DependentUpon>MyCoursesWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PracticalTaskViewWindow.xaml.cs">
-      <DependentUpon>PracticalTaskViewWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ProfileWindow.xaml.cs">
       <DependentUpon>ProfileWindow.xaml</DependentUpon>
@@ -296,9 +258,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Converters\" />
-    <Folder Include="Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
